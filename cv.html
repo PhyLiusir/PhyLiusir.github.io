@@ -87,7 +87,7 @@
 <div class="sheet">
 
   <h1 class="name">Chenxu Liu <span>刘宸旭</span></h1>
-  <p class="role">Undergraduate in Physics — Shandong University, Qingdao</p>
+  <p class="role">Undergraduate — Shandong University, Qingdao</p>
   <p class="contact">
     <b>202422201069@mail.sdu.edu</b> &nbsp;·&nbsp; github.com/Phyliusir &nbsp;·&nbsp; Qingdao, China
   </p>
@@ -97,72 +97,50 @@
     <div class="sec-head"><h2>Education</h2></div>
     <div class="item">
       <div class="item-top">
-        <h3>B.Sc. in Physics — Shandong University, Qingdao</h3>
+        <h3>Shandong University, Qingdao</h3>
         <span class="date">2024 — 2028</span>
       </div>
-      <p class="sub">Institute of Frontier and Interdisciplinary Science</p>
-      <p class="body">Coursework: quantum mechanics, electrodynamics, statistical physics, particle physics, computational methods. Senior thesis on TMD factorization planned for 2027–28.</p>
+      <p class="sub">Undergraduate, class of 2024 — expected graduation 2028</p>
+      <p class="body">Coursework for the foundations; almost all time outside it goes to engineering on both sides of large models and agents — read, reproduce, then change it on purpose.</p>
     </div>
   </section>
 
   <section>
     <div class="sec-head"><h2>Research interests</h2></div>
-    <p class="body">Transverse-momentum dependent distributions and nucleon spin structure; SIDIS and Drell–Yan phenomenology; small weight-tied sequence models and the optimizers that suit them.</p>
+    <p class="body"><b>Large models:</b> deployment and serving economics, post-training (SFT → preference → RL), and new attention architectures — Loop Attention.<br />
+    <b>Agents:</b> agent construction, tool design, multi-agent collaboration, retrieval-augmented generation.</p>
   </section>
 
   <section>
-    <div class="sec-head"><h2>Publications &amp; preprints</h2></div>
-    <p class="pub"><b>C. Liu</b>, “Higher-twist corrections to polarized TMDs from Gegenbauer moments,” <span class="venue">manuscript in preparation, The European Physical Journal Plus</span>, 2026.</p>
-    <p class="pub"><b>C. Liu</b>, “Depth-aware optimizers for weight-tied feed-forward stacks,” <span class="venue">preprint, arXiv submission planned for November 2026</span>.</p>
-  </section>
-
-  <section>
-    <div class="sec-head"><h2>Research experience</h2></div>
-    <div class="item">
-      <div class="item-top">
-        <h3>Undergraduate researcher — Particle Theory Group, SDU</h3>
-        <span class="date">2025 — present</span>
-      </div>
-      <ul>
-        <li>Built a Gaussian model with width² = z²⟨k<sub>T</sub>²⟩ + ⟨p<sub>T</sub>²⟩ to extract ⟨k<sub>T</sub>²⟩ from published SIDIS multiplicities, then cross-checked the result against JLab 12 GeV data from CLAS12 and Hall C.</li>
-        <li>Twice-weekly reading group on spin physics; notes on twist-3 contributions and Gegenbauer moments circulated to the group.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><h2>Teaching &amp; grading</h2></div>
-    <div class="item">
-      <div class="item-top">
-        <h3>Grader and teaching assistant — Zhixin Education</h3>
-        <span class="date">2024 — present</span>
-      </div>
-      <ul>
-        <li>Graded national-semifinal physics olympiad (CPhO) scripts against a written rubric.</li>
-        <li>Designed a rubric-driven grading pipeline with LLM assistance; it now processes a full exam batch end to end, with every score traceable to a rubric item.</li>
-      </ul>
-    </div>
+    <div class="sec-head"><h2>Research directions &amp; work in progress</h2></div>
+    <p class="pub"><b>Deployment (LM 01).</b> Cost structure of one model across serving stacks, batching and precision — cost per token, P99 latency and peak memory read together.</p>
+    <p class="pub"><b>Post-training (LM 02).</b> A full SFT → preference → RL chain reproduced at small scale, then ablated stage by stage; focus on which gains survive on a smaller model.</p>
+    <p class="pub"><b>Loop Attention (LM 03).</b> Reusing one attention block across depth — memory, wall-clock and training stability measured against a stacked baseline. Main line.</p>
+    <p class="pub"><b>Agent construction (AG 01).</b> The smallest useful combination of loop, memory and planning; a taxonomy of tool-less agent failures as the starting object.</p>
+    <p class="pub"><b>Tool design (AG 02).</b> Schemas, error surfaces and return shapes for a batch of real tasks, comparing failure distributions before and after.</p>
+    <p class="pub"><b>Multi-agent collaboration (AG 03).</b> A strong single-agent baseline first; multi-agent setups have to beat it reliably before roles get split.</p>
+    <p class="pub"><b>RAG (AG 04).</b> A citation-required QA set and a scoring script: an answer must land on a specific passage or it counts as wrong.</p>
   </section>
 
   <section>
     <div class="sec-head"><h2>Selected projects</h2></div>
-    <p class="pub"><b>Loop_FFN.</b> Shared-weight loop FFN (SwiGLU) vs. stacked FFN on Higgs, depth sweep {1, 2, 4, 8, 16}; +0.43 pp at depth 4 (p &lt; 0.05). Code, logs and reproduction scripts released.</p>
-    <p class="pub"><b>exam-RAG.</b> Hybrid retrieval over 46 physics textbooks (ChromaDB) wired into a production grading pipeline, so that every judgement cites a source page.</p>
+    <p class="pub"><b>Loop Attention — depth-reuse comparison.</b> Experiment log and reproduction scripts; being organised.</p>
+    <p class="pub"><b>Citation-required RAG evaluation set.</b> Question set plus scoring script; being organised.</p>
   </section>
 
   <section>
     <div class="sec-head"><h2>Technical skills</h2></div>
     <dl class="skills">
-      <dt>LANGUAGES</dt><dd>Python (primary), C++, CUDA, Bash</dd>
-      <dt>SCIENTIFIC</dt><dd>PyTorch, ROOT, Geant4, Mathematica</dd>
-      <dt>METHODS</dt><dd>TMD model fitting, retrieval-augmented pipelines, ChromaDB hybrid search, LaTeX and TikZ</dd>
-      <dt>TOOLING</dt><dd>Git, HPC clusters and batch jobs, reproducible builds</dd>
+      <dt>LANGUAGES</dt><dd>Python (primary), C++, CUDA, Bash, Git</dd>
+      <dt>MODEL SIDE</dt><dd>PyTorch training and fine-tuning, transformers and custom layers, serving and quantisation, LoRA and preference alignment</dd>
+      <dt>AGENT SIDE</dt><dd>Tools and function calling, multi-agent orchestration, vector retrieval and RAG, evaluation sets and scoring scripts</dd>
+      <dt>TOOLING</dt><dd>Linux and containers, distributed training basics, reproducible experiments</dd>
     </dl>
   </section>
 
   <section>
     <div class="sec-head"><h2>Languages</h2></div>
-    <p class="body">Chinese (native) · English (working proficiency; IELTS in preparation, target band 7.0).</p>
+    <p class="body">Chinese (native) · English (working proficiency).</p>
   </section>
 
   <div class="foot">

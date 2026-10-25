@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light"
+      data-title-en="Research notes — Chenxu Liu"
+      data-title-zh="研究笔记 — 刘宸旭">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research notes — Chenxu Liu</title>
+<meta name="description" content="Research notes on deployment, post-training, Loop Attention, agents, tools, multi-agent collaboration and RAG — Chenxu Liu." />
+<meta property="og:title" content="Research notes — Chenxu Liu" />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Ccircle cx='13' cy='13' r='11.4' fill='none' stroke='%231A1714' stroke-width='1.6'/%3E%3Ccircle cx='13' cy='13' r='3.4' fill='%23A0472F'/%3E%3C/svg%3E" />
+<script>
+try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=_t;}catch(e){}
+(function(){var d=document.documentElement;d.classList.add('js');window.__revealFallback=setTimeout(function(){d.classList.remove('js')},1500);})();
+</script>
+<link rel="stylesheet" href="assets/fonts.css" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="index.html" aria-label="Home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="13" cy="13" r="11.4" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="13" cy="13" r="3.1" fill="#A0472F"/>
+        <path d="M13 .6v6M13 19.4v6" stroke="currentColor" stroke-width="1.1"/>
+      </svg>
+      <span class="brand-name" data-zh="刘宸旭">Chenxu Liu</span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html#research" data-zh="研究方向">Research</a>
+      <a href="index.html#current" class="is-current" data-zh="在做的">Current</a>
+      <a href="index.html#experience" data-zh="教育与经历">Experience</a>
+      <a href="index.html#toolkit" data-zh="工具链">Toolkit</a>
+    </nav>
+
+    <div class="actions">
+      <button class="icon-btn" type="button" data-theme-btn aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang-btn="zh" aria-pressed="false">中</button>
+      </div>
+      <a class="btn" href="cv.pdf" download aria-label="Download CV (PDF)">
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <path d="M5.5.6v6.8M5.5 7.4 2.4 4.3M5.5 7.4l3.1-3.1M.6 10.4h9.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <span data-zh="下载简历">Download CV</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head" style="padding-inline:var(--pad)">
+    <div class="shell">
+      <a class="back" href="index.html">
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <path d="M10.4 5.5H1M5 1.6 1 5.5l4 3.9" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <span data-zh="返回首页">INDEX</span>
+      </a>
+
+      <h1 class="page-title" data-zh="研究笔记">Research notes</h1>
+
+      <p class="page-lede" data-zh="七个方向：问题是什么、当前在做什么、还没解决的是什么。论文与代码在陆续整理，放出来的时候会直接挂在对应方向下面。">Seven areas: what the question is, what I am doing about it now, and what is still open. Papers and repositories will hang off the matching area as they are tidied up.</p>
+    </div>
+  </section>
+
+  <section style="padding-inline:var(--pad);padding-block:0 96px">
+    <div class="shell paper-list">
+
+      <article class="paper reveal" id="deployment">
+        <div class="paper-meta">
+          <span class="tag">LM 01 · LARGE MODELS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="部署">Deployment</h2>
+        <p class="abstract" data-zh="推理服务是把模型变成产品的那一层，也是最容易被 benchmark 骗的一层。我关心同一个模型在不同服务框架、批处理策略与量化精度下的真实成本结构：吞吐上去了，尾延迟和显存峰值去了哪里。">Serving is the layer that turns a model into a product, and the layer most easily fooled by benchmarks. I care about the real cost structure of one model across serving stacks, batching strategies and precision settings: throughput goes up, so where do tail latency and peak memory go?</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="把一张 benchmark 表翻译成一张账单：每 token 成本、P99 延迟、显存峰值，三个数必须一起看。">Turning a benchmark table into a bill: cost per token, P99 latency and peak memory, read together or not at all.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="批处理与尾延迟的交换曲线，在什么负载下会反号？">At what load does the batching-versus-tail-latency trade-off flip sign?</li>
+          <li data-zh="量化省下的那点精度，换来的吞吐到底值不值？">Is the throughput bought with quantisation worth the accuracy it costs?</li>
+          <li data-zh="KV cache 的显存预算，应该按请求算还是按租户算？">Should the KV-cache memory budget be accounted per request or per tenant?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="post-training">
+        <div class="paper-meta">
+          <span class="tag">LM 02 · LARGE MODELS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="后训练">Post-training</h2>
+        <p class="abstract" data-zh="从 SFT 到偏好对齐再到强化学习，这一串里每一环都在筛数据，也都在制造偏差。我更关心增益的存活率：在小一个量级的模型上，多少提升是真的，多少只是把评测集背了下来。">From SFT to preference alignment to RL, every stage filters data and every stage introduces bias. I care about the survival rate of gains: on a model one size smaller, how much improvement is real and how much is memorising the eval set?</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="复现优先于改进：先在小规模上把一条完整后训练链跑通，再逐环做消融。">Reproduce before improving: get one full post-training chain running at small scale, then ablate it stage by stage.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="数据筛选用什么指标，才能预测下游的真实增益？">Which data-selection metric actually predicts downstream gain?</li>
+          <li data-zh="评测集被污染，有哪些可观测的信号？">What observable signals reveal that an eval set has been contaminated?</li>
+          <li data-zh="RL 阶段的收益，从多大的模型开始才出现？">At what model size do RL-stage gains start to appear?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="loop-attention">
+        <div class="paper-meta">
+          <span class="tag">LM 03 · LARGE MODELS</span>
+          <span class="venue" data-zh="重点">MAIN LINE</span>
+        </div>
+        <h2 data-zh="新注意力架构 · Loop Attention">New attention architecture — Loop Attention</h2>
+        <p class="abstract" data-zh="把同一个注意力块跨深度复用，参数量不随深度增长，代价是每一层看到的东西越来越像。这条线的核心问题很简单：省下来的显存与计算，能不能换回等价的表达能力。">Reusing one attention block across depth keeps parameters flat while every layer sees more and more like the last one. The core question is simple: can the memory and compute saved buy back equivalent expressive power?</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="第一轮对照实验：与堆叠基线比较显存、墙钟时间与训练稳定性，先在中小规模上把账算清。">First comparison run against a stacked baseline — memory, wall-clock and training stability, at small and medium scale first.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="深度复用与宽度扩展的交换点在哪里？">Where is the trade-off point between depth reuse and width scaling?</li>
+          <li data-zh="复用带来的表示坍缩，用什么指标能提前发现？">Which metric detects the representation collapse caused by reuse, early?</li>
+          <li data-zh="在长上下文任务上，复用会不会反而变成优势？">On long-context tasks, could reuse turn from cost into advantage?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="实验记录整理中">EXPERIMENT LOG IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="agent-building">
+        <div class="paper-meta">
+          <span class="tag">AG 01 · AGENTS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="Agent 搭建">Building agents</h2>
+        <p class="abstract" data-zh="循环、记忆与规划，取最小可用组合。没有工具的智能体是最干净的实验对象：它所有的失败都来自自身，而不是来自工具或环境噪声——先把这个对象研究透，再决定加什么。">Loop, memory and planning, taken as the smallest useful combination. A tool-less agent is the cleanest object of study: every failure comes from itself rather than from tools or environment noise. Understand it before adding anything.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="先给没有工具的智能体建一套失败分类，再决定该给它加循环、记忆还是规划。">Build a taxonomy of tool-less agent failures first, then decide whether to add loop, memory or planning.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="失败模式里，哪些靠加工具能救，哪些不能？">Which failure modes can extra tools fix, and which can they not?</li>
+          <li data-zh="记忆写入的时机，应该由谁来决定？">Who should decide when a memory gets written?</li>
+          <li data-zh="规划在什么任务长度上才开始回本？">At what task length does planning start to pay for itself?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="tools">
+        <div class="paper-meta">
+          <span class="tag">AG 02 · AGENTS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="工具设计">Tool design</h2>
+        <p class="abstract" data-zh="工具首先是给模型读的接口，其次才是给人读的。schema 里的歧义、错误 surface 的粗糙程度、返回值的形状，都会直接变成模型的犯错率。">A tool is an interface for the model first and for people second. Ambiguity in the schema, roughness of the error surface and the shape of the return value all convert directly into the model&rsquo;s error rate.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="给一批真实任务重做 schema 与错误处理，用同一套任务对比改动前后的失败分布。">Redo schemas and error handling for a batch of real tasks, comparing failure distributions before and after on the same task set.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="错误信息写多细，模型才会真的改行为？">How detailed must an error message be before the model actually changes behaviour?</li>
+          <li data-zh="工具粒度粗一点好，还是细一点好？">Is it better for tools to be coarse-grained or fine-grained?</li>
+          <li data-zh="返回值该结构化到什么程度？">How structured should a return value be?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="multi-agent">
+        <div class="paper-meta">
+          <span class="tag">AG 03 · AGENTS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="多 Agent 协作">Multi-agent collaboration</h2>
+        <p class="abstract" data-zh="角色、路由与协调成本。我默认怀疑多智能体：多数任务里，一个 Agent 加一批好工具更便宜也更好调试。这条线要证明的是协作真的划算，而不是拆出更多角色。">Roles, routing and the cost of coordination. I am suspicious of multi-agent setups by default: for most tasks, one agent with good tools is cheaper and easier to debug. This line has to prove that coordination pays, not that more roles exist.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="先建一个单 Agent 的强基线，再看多智能体在哪些任务上能稳定超过它。">Build a strong single-agent baseline first, then find the tasks where a multi-agent setup beats it reliably.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="协调开销随角色数怎么增长？">How does coordination overhead grow with the number of roles?</li>
+          <li data-zh="什么信号说明应该合并角色，而不是继续拆？">What signal says roles should be merged rather than split further?</li>
+          <li data-zh="失败是如何在角色之间传播的？">How does failure propagate between roles?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="rag">
+        <div class="paper-meta">
+          <span class="tag">AG 04 · AGENTS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="RAG">RAG</h2>
+        <p class="abstract" data-zh="切分、检索质量与可追责的生成。一旦要求模型给出处，检索和生成两侧的薄弱环节都藏不住了——所以评测集本身必须带引用要求，否则等于没测。">Chunking, retrieval quality and answers that can be held to a source. Force a model to cite and weak links on both the retrieval and generation side stop hiding — which is why the evaluation set has to demand citations too.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="做一个带引用要求的问答评测集与打分脚本：答案必须落到具体段落，否则判负。">A citation-required QA set plus a scoring script: an answer must land on a specific passage, or it counts as wrong.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="切分粒度与检索召回的关系，在什么区间最稳？">In what range is the chunk-size versus recall relationship most stable?</li>
+          <li data-zh="引用错误的代价，应该比不引用更高吗？">Should a wrong citation cost more than no citation at all?</li>
+          <li data-zh="重排在多大库规模上才回本？">At what corpus size does re-ranking start to pay off?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="评测集整理中">EVAL SET IN PROGRESS</span>
+        </div>
+      </article>
+
+      <h2 class="mini-title" data-zh="论文与代码">Papers &amp; code</h2>
+
+      <div class="mini-list">
+        <div class="mini">
+          <span class="year">2026</span>
+          <div>
+            <h3 data-zh="Loop Attention：深度复用的第一轮对照">Loop Attention — first depth-reuse comparison</h3>
+            <p class="note" data-zh="实验记录与复现脚本，整理中。">Experiment log and reproduction scripts, being organised.</p>
+          </div>
+          <a class="link" href="#" data-zh="待发布">PENDING</a>
+        </div>
+        <div class="mini">
+          <span class="year">2026</span>
+          <div>
+            <h3 data-zh="带引用要求的 RAG 评测集">A citation-required RAG evaluation set</h3>
+            <p class="note" data-zh="问答集与打分脚本，整理中。">Question set and scoring script, being organised.</p>
+          </div>
+          <a class="link" href="#" data-zh="待发布">PENDING</a>
+        </div>
+      </div>
+
+      <p class="page-note" data-zh="这一页先放研究方向与进行中的工作。任何一部分的原始记录——包括跑崩的——都可以直接写信来要，我给的是日志，不是结论。">This page carries research directions and work in progress. Raw records for any part of it, crashes included, are available on request — what I hand over is the log, not the conclusion.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding-inline:var(--pad)">
+  <div class="shell">
+    <div class="f-top reveal">
+      <div>
+        <div class="f-k" data-zh="联系我">GET IN TOUCH</div>
+        <h2 class="f-h" data-zh="聊聊吧。">Let&rsquo;s talk.</h2>
+        <p class="f-sub" data-zh="同一个问题的两半：模型本身，以及不得不靠它干活的智能体。邮件最快，中英文皆可。">Two halves of one problem: the model itself, and the agent that has to use it. Email is the fastest way in, in either language.</p>
+        <a class="f-mail" href="mailto:202422201069@mail.sdu.edu">202422201069@mail.sdu.edu</a>
+      </div>
+      <div class="f-links">
+        <span class="k" data-zh="其他">ELSEWHERE</span>
+        <a href="#">GitHub</a>
+        <a href="#">Google Scholar</a>
+        <a href="#">ORCID</a>
+        <a href="mailto:202422201069@mail.sdu.edu" data-zh="邮箱">Email</a>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>&copy; 2026 <span data-zh="刘宸旭">Chenxu Liu</span></span>
+      <a href="index.html" data-zh="返回首页">Back to index</a>
+      <span data-zh="最后更新 2026.10">Last updated 2026.10</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
