@@ -1,6 +1,10 @@
 (function () {
   var doc = document.documentElement;
 
+  /* motion: the head script marked the document as scripted; confirm it within 1.5s
+     or it removes that class, which makes every animation-reliant rule inert */
+  if (window.__revealFallback) clearTimeout(window.__revealFallback);
+
   /* ---------------- language ---------------- */
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-zh]'));
   nodes.forEach(function (el) { el.dataset.en = el.innerHTML; });
@@ -55,6 +59,51 @@
       setTheme(current() === 'dark' ? 'light' : 'dark');
     });
   }
+
+  /* ---------------- scroll reveal ---------------- */
+  var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (window.IntersectionObserver && !reduced) {
+    var seen = new WeakMap();
+    items.forEach(function (el) {
+      var key = el.parentElement;
+      var i = seen.get(key) || 0;
+      seen.set(key, i + 1);
+      el.style.setProperty('--d', Math.min(i, 5) * 70 + 'ms');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------------- progress bar + compact header ---------------- */
+  var header = document.querySelector('header.top');
+  var bar = document.querySelector('.progress');
+  var queued = false;
+
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (header) header.classList.toggle('is-compact', y > 40);
+      if (bar) {
+        var room = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (room > 0 ? Math.max(0, Math.min(1, y / room)) : 0) + ')';
+      }
+      queued = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
 
   /* ---------------- anchor offset ----------------
      Chrome ignores scroll-margin-top on the first fragment jump when
