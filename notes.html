@@ -76,7 +76,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
 
       <h1 class="page-title" data-zh="研究笔记">Research notes</h1>
 
-      <p class="page-lede" data-zh="七个方向：问题是什么、当前在做什么、还没解决的是什么。论文与代码在陆续整理，放出来的时候会直接挂在对应方向下面。">Seven areas: what the question is, what I am doing about it now, and what is still open. Papers and repositories will hang off the matching area as they are tidied up.</p>
+      <p class="page-lede" data-zh="十个方向：问题是什么、当前在做什么、还没解决的是什么。论文与代码在陆续整理，放出来的时候会直接挂在对应方向下面。">Ten areas: what the question is, what I am doing about it now, and what is still open. Papers and repositories will hang off the matching area as they are tidied up.</p>
     </div>
   </section>
 
@@ -248,6 +248,78 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
 
         <div class="paper-links">
           <span class="muted" data-zh="评测集整理中">EVAL SET IN PROGRESS</span>
+        </div>
+      </article>
+
+            <article class="paper reveal" id="light-front">
+        <div class="paper-meta">
+          <span class="tag">PH 01 · PHYSICS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="光前量子化">Light-front quantization</h2>
+        <p class="abstract" data-zh="把强子放进光前量子化下的一组模式：运动学变成乘法、真空变简单，代价是 Fock 空间截断成为唯一需要交代的近似。这条线关心的正是截断本身在什么地方可信。">A hadron as a set of modes on the light front: kinematics turn multiplicative, the vacuum gets simple, and the Fock-space truncation becomes the one approximation you have to justify. This line is about where that truncation can be trusted.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="固定 N 截断下，重子的光前波函数能算到哪一步，哪些量对 N 不敏感。">At fixed N, how far the light-front wave function can be pushed, and which observables barely notice N.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="光前运动学的乘法结构，在哪些计算里真的省事？">In which calculations does the multiplicative light-front kinematics actually save work?</li>
+          <li data-zh="真空变简单，代价是把哪些物理挪进了波函数？">If the vacuum got simpler, which physics got moved into the wave function instead?</li>
+          <li data-zh="截断误差该用哪个可观测量来监控？">Which observable is the right monitor for truncation error?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="fock-basis">
+        <div class="paper-meta">
+          <span class="tag">PH 02 · PHYSICS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="重子的光锥 Fock 基展开">Baryon light-cone Fock expansion</h2>
+        <p class="abstract" data-zh="重子在光锥 Fock 基下的波函数展开：从三夸克到五夸克，展开系数就是波函数。关注展开的收敛性，以及固定 N 截断之后哪些可观测量还活着。">Baryon wave functions in the light-cone Fock basis — from three to five constituents, where the expansion coefficients are the wave function. The questions are convergence, and which observables survive a cut at fixed N.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="先把三夸克扇区算干净，再看五夸克分量对结构函数的影响量级。">Get the three-quark sector clean first, then measure how much the five-quark sector moves the structure function.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="收敛是由横动量还是由 Fock 分量数主导？">Is convergence driven by transverse momentum or by the number of Fock components?</li>
+          <li data-zh="哪些可观测量对截断最不敏感？">Which observables are least sensitive to the truncation?</li>
+          <li data-zh="五夸克分量在什么过程里才看得见？">In which process do five-quark components finally become visible?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
+        </div>
+      </article>
+
+      <article class="paper reveal" id="proton-structure">
+        <div class="paper-meta">
+          <span class="tag">PH 03 · PHYSICS</span>
+          <span class="venue" data-zh="进行中">ONGOING</span>
+        </div>
+        <h2 data-zh="质子结构：DIS / SIDIS / DY">Proton structure — DIS / SIDIS / DY</h2>
+        <p class="abstract" data-zh="DIS、SIDIS 与 DY 是看质子的三个窗口：DIS 给共线 PDF，SIDIS 给横动量分布，DY 从另一侧约束同一族函数。把三者放进同一张图，部分子的三维分布才立得住。">DIS, SIDIS and DY are three windows on the proton: DIS for the collinear PDF, SIDIS for transverse momentum, DY for the same family from the other side. Put them in one picture and the 3D distribution of partons starts to hold still.</p>
+
+        <div class="keybox">
+          <span class="k" data-zh="当前焦点">CURRENT FOCUS</span>
+          <p data-zh="把三个过程的约束放进同一套参数化里比对，先找出彼此冲突的地方。">Put the constraints from all three processes into one parameterisation, and start by finding where they disagree.</p>
+        </div>
+
+        <ul class="qlist">
+          <li data-zh="三个过程对同一个 ⟨k⊥²⟩ 的约束差多少？">How much do the three processes disagree on the same ⟨k⊥²⟩?</li>
+          <li data-zh="高斯宽度模型在哪个 Q² 区间开始失效？">In which Q² range does the Gaussian width model start to fail?</li>
+          <li data-zh="三维分布里，哪一项最缺数据？">Which term of the 3D distribution is shortest on data?</li>
+        </ul>
+
+        <div class="paper-links">
+          <span class="muted" data-zh="笔记整理中">NOTES IN PROGRESS</span>
         </div>
       </article>
 

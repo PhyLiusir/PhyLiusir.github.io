@@ -79,7 +79,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
 
         <h2 class="statement" data-zh="一侧是模型本身：怎么部署、怎么后训练、注意力该长什么样；另一侧是不得不靠它干活的智能体。">One side of my work is the model itself — how it is served, how it is post-trained, what its attention should look like. The other side is the agent that has to use it.</h2>
 
-        <p class="lede" data-zh="山东大学前沿交叉科学青岛研究院物理学专业本科生，2024 级，预计 2028 年毕业。时间大致对半开：一半给推理与后训练，一半给智能体、工具与检索。习惯是先把小而丑的版本搭出来，再看它坏在哪里。">Undergraduate in physics at the Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao (class of 2024, expected 2028). My time splits roughly in half: inference and post-training on one hand, agents, tools and retrieval on the other. I usually build the small ugly version first and watch where it breaks.</p>
+        <p class="lede" data-zh="山东大学前沿交叉科学青岛研究院物理学专业本科生，2024 级，预计 2028 年毕业。时间大致对半开：一半给推理与后训练，一半给智能体、工具与检索；底下垫着的是光前量子化与质子结构。习惯是先把小而丑的版本搭出来，再看它坏在哪里。">Undergraduate in physics at the Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao (class of 2024, expected 2028). My time splits roughly in half: inference and post-training on one hand, agents, tools and retrieval on the other. Underneath sits light-front physics and the structure of the proton. I usually build the small ugly version first and watch where it breaks.</p>
 
         <div class="cta-row">
           <a class="btn-primary" href="cv.pdf" download>
@@ -149,7 +149,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <span class="idx">01</span>
           <h2 data-zh="研究方向">Research</h2>
         </div>
-        <p class="sec-lede" data-zh="七个方向，两半问题：模型本身，以及不得不靠它干活的智能体。">Seven areas, two halves of one problem: the model itself, and the agent that has to use it.</p>
+        <p class="sec-lede" data-zh="两半问题，外加一块地基：模型本身、不得不靠它干活的智能体，以及训练出这套习惯的物理。">Two halves of one problem, plus the ground they stand on: the model itself, the agent that has to use it, and the physics the habits come from.</p>
       </div>
 
       <div class="rows">
@@ -218,6 +218,35 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
             <p class="desc" data-zh="切分、检索质量，以及可追责的生成。一旦要求模型给出处，哪些环节在裸泳就藏不住了——所以评测集必须带引用要求。">Chunking, retrieval quality and answers that can be held to a source. Force a model to cite and the weak links stop hiding — so the evaluation set has to demand citations too.</p>
           </div>
           <div class="tags" data-zh="检索 · 引用 · 评测集">RETRIEVAL · CITATION · EVAL SET</div>
+        </article>
+
+        <div class="group-label reveal" data-zh="物理学 · PHYSICS">Physics</div>
+
+        <article class="row reveal">
+          <div class="year">PH 01</div>
+          <div>
+            <h3 data-zh="光前量子化">Light-front quantization</h3>
+            <p class="desc" data-zh="把强子放进光前量子化下的一组模式：运动学变成乘法、真空变简单，代价是 Fock 空间截断成为唯一需要交代的近似。这条线关心的正是截断本身在什么地方可信。">A hadron as a set of modes on the light front: kinematics turn multiplicative, the vacuum gets simple, and the Fock-space truncation becomes the one approximation you have to justify. This line is about where that truncation can be trusted.</p>
+          </div>
+          <div class="tags" data-zh="光前坐标 · FOCK 空间 · 截断">LIGHT-FRONT · FOCK SPACE · TRUNCATION</div>
+        </article>
+
+        <article class="row reveal">
+          <div class="year">PH 02</div>
+          <div>
+            <h3 data-zh="重子的光锥 Fock 基展开">Baryon light-cone Fock expansion</h3>
+            <p class="desc" data-zh="重子在光锥 Fock 基下的波函数展开：从三夸克到五夸克，展开系数就是波函数。关注展开的收敛性，以及固定 N 截断之后哪些可观测量还活着。">Baryon wave functions in the light-cone Fock basis — from three to five constituents, where the expansion coefficients are the wave function. The questions are convergence, and which observables survive a cut at fixed N.</p>
+          </div>
+          <div class="tags" data-zh="重子波函数 · 收敛性 · 截断误差">WAVE FUNCTIONS · CONVERGENCE · TRUNCATION</div>
+        </article>
+
+        <article class="row reveal">
+          <div class="year">PH 03</div>
+          <div>
+            <h3 data-zh="质子结构：DIS / SIDIS / DY">Proton structure — DIS / SIDIS / DY</h3>
+            <p class="desc" data-zh="三种过程，三个看质子的窗口：DIS 给共线 PDF，SIDIS 给横动量分布，DY 从另一侧约束同一族函数。把三者放进同一张图，部分子的三维分布才立得住。">Three processes, three windows on the proton: DIS for the collinear PDF, SIDIS for transverse momentum, DY for the same family from the other side. Put them in one picture and the 3D distribution of partons starts to hold still.</p>
+          </div>
+          <div class="tags" data-zh="PDF · TMD · 三维分布">PDF · TMD · 3D DISTRIBUTIONS</div>
         </article>
       </div>
     </div>
@@ -301,6 +330,11 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
             <p class="detail" data-zh="每个方向都从最小可复现版本开始：先把论文里的方法在小规模上重跑一遍，记录哪里对不上，再决定要不要往下走。">Every area starts from a minimal runnable version: re-run a published method at small scale, write down where it fails to reproduce, and only then decide whether to go further.</p>
           </div>
         </article>
+
+        <div class="course reveal">
+          <span class="k" data-zh="课程">COURSEWORK</span>
+          <span class="v" data-zh="理论力学 · 电动力学 · 热力学与统计物理 · 量子力学 · 高等量子力学 · 量子场论 · 粒子物理 · 广义相对论">Theoretical mechanics · Electrodynamics · Thermodynamics and statistical physics · Quantum mechanics · Advanced quantum mechanics · Quantum field theory · Particle physics · General relativity</span>
+        </div>
 
         <div class="course reveal">
           <span class="k" data-zh="工作方式">HOW I WORK</span>
