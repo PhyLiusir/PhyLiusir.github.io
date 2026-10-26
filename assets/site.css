@@ -233,10 +233,13 @@
   .f-h{margin-top:18px;font-family:var(--serif);font-weight:300;font-size:62px;line-height:1.06;letter-spacing:-.02em}
   .f-sub{margin-top:18px;font-size:14.5px;line-height:1.72;color:var(--dark-muted);max-width:520px}
   .f-mail{
-    display:inline-block;margin-top:18px;font-family:var(--mono);font-size:14px;
+    display:inline-block;font-family:var(--mono);font-size:14px;
     border-bottom:1px solid transparent;transition:border-color .2s ease,color .2s ease;
   }
   .f-mail:hover{color:#C0705A;border-color:#C0705A}
+  .f-mails{margin-top:18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .f-mail-sub{font-size:12.5px;color:var(--dark-muted)}
+  .f-mail-sub:hover{color:#C0705A}
   .f-links{display:flex;flex-direction:column;gap:14px}
   .f-links .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dark-faint)}
   .f-links a{font-size:14px;color:#E6DFD2;width:fit-content;transition:color .2s ease}
