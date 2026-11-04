@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>刘宸旭 — 简历</title>
+<link rel="stylesheet" href="assets/fonts.css" />
+<style>
+  @page{ size:A4; margin:0; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#fff;color:#1A1714;
+    font-family:"Geist","Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
+    font-size:9.2pt;line-height:1.58;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .sheet{width:210mm;min-height:297mm;padding:12mm 17mm 11mm;margin:0 auto;background:#fff}
+  @media screen{
+    body{background:#EDEAE3;padding:24px 0}
+    .sheet{box-shadow:0 2px 24px rgba(0,0,0,.14)}
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,p{margin:0}
+
+  .name{
+    font-family:"Newsreader","Noto Serif SC","Songti SC","Microsoft YaHei",serif;font-weight:400;
+    font-size:25pt;line-height:1.1;letter-spacing:.02em;
+  }
+  .name span{font-size:11pt;color:#8C8478;margin-left:8pt;letter-spacing:0;font-family:"Geist",sans-serif}
+  .role{margin-top:5pt;font-size:9.4pt;color:#4A443B}
+  .contact{
+    margin-top:7pt;font-family:"Geist Mono",ui-monospace,monospace;
+    font-size:7.8pt;letter-spacing:.02em;color:#6B6459;
+  }
+  .contact b{font-weight:400;color:#A0472F}
+  .rule{margin-top:9pt;border-top:1px solid #C9C1B2}
+
+  section{margin-top:10.5pt}
+  .sec-head{
+    display:flex;align-items:baseline;gap:8pt;
+    border-bottom:1px solid #DDD6C8;padding-bottom:2.6pt;margin-bottom:6pt;
+  }
+  .sec-head h2{
+    font-family:"Geist","Noto Sans SC","Microsoft YaHei",sans-serif;
+    font-size:8.6pt;font-weight:500;letter-spacing:.16em;color:#1A1714;
+  }
+  .sec-head em{
+    font-style:normal;font-family:"Geist Mono",monospace;
+    font-size:7.2pt;color:#A8A093;letter-spacing:.06em;margin-left:auto;
+  }
+
+  .item + .item{margin-top:6pt}
+  .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:12pt}
+  .item-top h3{font-size:9.8pt;font-weight:500;line-height:1.4}
+  .item-top .date{
+    font-family:"Geist Mono",monospace;font-size:7.6pt;color:#8C8478;
+    white-space:nowrap;letter-spacing:.02em;
+  }
+  .sub{font-size:8.9pt;color:#5A534A;margin-top:1pt}
+  .body{font-size:8.9pt;color:#4A443B;margin-top:3pt;line-height:1.66}
+  ul{margin:3pt 0 0;padding-left:12pt}
+  li{font-size:8.9pt;color:#4A443B;margin-top:2pt}
+  li::marker{color:#B9AF9E}
+
+  .pub{margin-top:5.4pt;padding-left:11pt;position:relative}
+  .pub:first-of-type{margin-top:2pt}
+  .pub::before{content:"";position:absolute;left:0;top:5.2pt;width:4pt;height:1px;background:#A0472F}
+  .pub b{font-weight:500}
+  .pub .venue{color:#6B6459}
+
+  .skills{display:grid;grid-template-columns:24mm 1fr;row-gap:2.5pt;column-gap:6pt}
+  .skills dt{
+    font-family:"Geist Mono","Noto Sans SC",monospace;font-size:7.3pt;letter-spacing:.04em;
+    color:#8C8478;padding-top:1.6pt;
+  }
+  .skills dd{margin:0;font-size:8.9pt;color:#332E27;line-height:1.6}
+  dl{margin:0}
+  .foot{
+    margin-top:14pt;border-top:1px solid #DDD6C8;padding-top:5pt;
+    font-family:"Geist Mono","Noto Sans SC",monospace;font-size:7.2pt;color:#A8A093;letter-spacing:.04em;
+    display:flex;justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <h1 class="name">刘宸旭 <span>Chenxu Liu</span></h1>
+  <p class="role">物理学学士 — 山东大学（青岛）</p>
+  <p class="contact">
+    <b>202422201069@mail.sdu.edu.cn</b> &nbsp;·&nbsp; physicsliu299792458@outlook.com &nbsp;·&nbsp; github.com/PhyLiusir<br />
+    中国 青岛
+  </p>
+  <div class="rule"></div>
+
+  <section>
+    <div class="sec-head"><h2>教育经历</h2><em>EDUCATION</em></div>
+    <div class="item">
+      <div class="item-top">
+        <h3>山东大学（青岛）</h3>
+        <span class="date">2024 — 2028</span>
+      </div>
+      <p class="sub">前沿交叉科学青岛研究院 · 2024 级，预计 2028 年毕业</p>
+      <p class="body">先用物理打底。课程：理论力学、电动力学、热力学与统计物理、量子力学、高等量子力学、量子场论、粒子物理、广义相对论。课外的时间花在大模型与智能体两头做工程——先读，再复现，然后有目的地改。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>研究兴趣</h2><em>RESEARCH INTERESTS</em></div>
+    <p class="body"><b>大模型：</b>部署与服务的经济学、后训练（SFT → 偏好 → RL），以及新的注意力架构——Loop Attention。<br />
+    <b>智能体：</b>智能体构建、工具设计、多智能体协作、检索增强生成。</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>研究方向与进行中的工作</h2><em>RESEARCH DIRECTIONS</em></div>
+    <p class="pub"><b>部署（LM 01）。</b>同一个模型在不同服务框架、批处理策略与精度下的成本结构——每 token 成本、P99 延迟与显存峰值，三个数必须一起看。</p>
+    <p class="pub"><b>后训练（LM 02）。</b>在小规模上把一条完整的 SFT → 偏好 → RL 链复现一遍，再逐级做消融；重点是哪些增益在小一号的模型上还能活下来。</p>
+    <p class="pub"><b>Loop Attention（LM 03）。</b>把同一个注意力块跨深度复用——显存、墙钟时间与训练稳定性，和堆叠基线比。主线。</p>
+    <p class="pub"><b>智能体构建（AG 01）。</b>循环、记忆与规划的最小可用组合；以「无工具智能体的失败类型学」作为起点。</p>
+    <p class="pub"><b>工具设计（AG 02）。</b>给一批真实任务重做 schema、错误面与返回结构，比较改动前后的失败分布。</p>
+    <p class="pub"><b>多智能体协作（AG 03）。</b>先要一个足够强的单智能体基线；多智能体必须在它上面稳定取胜，才谈拆角色。</p>
+    <p class="pub"><b>RAG（AG 04）。</b>一套带引用要求的问答集与打分脚本：答案必须落到具体段落，否则判负。</p>
+    <p class="pub"><b>光前量子化（PH 01）。</b>Fock 空间截断，是那个唯一需要交代的近似。</p>
+    <p class="pub"><b>重子的光锥 Fock 基展开（PH 02）。</b>先做三夸克扇区；固定 N 截断之后，哪些可观测量还活着。</p>
+    <p class="pub"><b>质子结构（PH 03）。</b>DIS、SIDIS 与 DY 一起读——共线 PDF、横动量、三维分布。</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>技术能力</h2><em>TECHNICAL SKILLS</em></div>
+    <dl class="skills">
+      <dt>语言</dt><dd>Python（主力）、C++、CUDA、Bash、Git</dd>
+      <dt>大模型侧</dt><dd>PyTorch 训练与微调、transformers 与自定义层、推理服务与量化、LoRA 与偏好对齐</dd>
+      <dt>智能体侧</dt><dd>工具与函数调用、多智能体编排、向量检索与 RAG、评测集与打分脚本</dd>
+      <dt>工具与环境</dt><dd>Linux 与容器、分布式训练基础、可复现实验</dd>
+    </dl>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>语言</h2><em>LANGUAGES</em></div>
+    <p class="body">中文（母语）· 英文（工作语言）</p>
+  </section>
+
+  <div class="foot">
+    <span>刘宸旭 — 简历</span>
+    <span>2026 年 10 月更新</span>
+  </div>
+
+</div>
+</body>
+</html>

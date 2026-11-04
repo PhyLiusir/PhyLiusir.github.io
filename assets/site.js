@@ -19,6 +19,14 @@
     document.title = doc.dataset.lang === 'zh' ? (t.zh || t.en) : (t.en || t.zh);
   }
 
+  /* CV 下载按当前语言指向对应的 PDF；两边是独立文件，不是内嵌双语 */
+  function applyCvLinks() {
+    var zh = doc.dataset.lang === 'zh';
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-cv-en]'), function (a) {
+      a.setAttribute('href', zh ? a.dataset.cvZh : a.dataset.cvEn);
+    });
+  }
+
   function setLang(lang) {
     doc.dataset.lang = lang;
     doc.lang = lang === 'zh' ? 'zh-CN' : 'en';
@@ -26,6 +34,7 @@
       el.innerHTML = lang === 'zh' ? el.dataset.zh : el.dataset.en;
     });
     applyTitle();
+    applyCvLinks();
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang-btn]'), function (b) {
       var on = b.dataset.langBtn === lang;
       b.classList.toggle('is-active', on);

@@ -63,8 +63,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          cp index.html notes.html cv.html cv-physics.html _site/
-          cp cv.pdf cv-physics.pdf .nojekyll _site/
+          cp index.html notes.html _site/
+          cp cv.html cv-physics.html cv-zh.html cv-physics-zh.html _site/
+          cp cv.pdf cv-physics.pdf cv-zh.pdf cv-physics-zh.pdf .nojekyll _site/
           cp -r assets _site/assets
           cp -r tools _site/tools   # 有意公开：读者据此复现页面上的每个数字
           find _site -type f | sort
