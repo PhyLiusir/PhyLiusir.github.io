@@ -1,0 +1,223 @@
+<!-- block:lf-wavefunction -->
+
+<h3 class="mb-h">The wave function</h3>
+
+<p class="mb-p">A hadron is an eigenstate of the light-front Hamiltonian. Written in terms of the invariant mass, the kinematic part turns multiplicative and every bit of the dynamics sits in one operator:</p>
+
+<div class="mb-eq">$$H_{LC}=P^{+}P^{-}-\mathbf P_{\perp}^{2},\qquad H_{LC}\,|\psi\rangle=M^{2}\,|\psi\rangle .$$</div>
+
+<p class="mb-p">Expanding that eigenvector in Fock states is what gives the light-front wave function its meaning: $\psi_{n}$ is the probability amplitude for finding $n$ partons with momentum fractions $x_{i}$ and transverse momenta $\mathbf k_{\perp i}$,</p>
+
+<div class="mb-eq">$$|P\rangle=\sum_{n}\int\Big[\prod_{i=1}^{n}\frac{\mathrm d x_{i}\,\mathrm d^{2}k_{\perp i}}{16\pi^{3}}\Big]\ \psi_{n}(x_{i},\mathbf k_{\perp i},\lambda_{i})\ \big|n;\,x_{i}P^{+},\ x_{i}\mathbf P_{\perp}+\mathbf k_{\perp i},\ \lambda_{i}\big\rangle ,$$</div>
+
+<p class="mb-p">subject to the two constraints that carry the whole kinematics — longitudinal and transverse momentum conservation — and to normalisation:</p>
+
+<div class="mb-eq">$$\sum_{i=1}^{n}x_{i}=1,\qquad \sum_{i=1}^{n}\mathbf k_{\perp i}=\mathbf 0_{\perp},\qquad \sum_{n}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\,|\psi_{n}|^{2}=1 .$$</div>
+
+<p class="mb-p">The wave function is not an ansatz. It is fixed by the eigenvalue condition rewritten as a resolvent — light-front time-ordered perturbation theory — where every intermediate state is weighted by the light-front energy denominator of the free part:</p>
+
+<div class="mb-eq">$$|\psi\rangle=|\psi_{0}\rangle+\frac{1}{M^{2}-H_{0}}\,V\,|\psi\rangle ,\qquad H_{0}=\sum_{i}\frac{\mathbf k_{\perp i}^{2}+m_{i}^{2}}{x_{i}} .$$</div>
+
+<p class="mb-p">Two consequences are worth keeping. Because $x_{i}$ sits in the denominator, a parton at small $x$ costs little energy and the sum over $n$ is not obviously convergent — that is precisely where the truncation problem of the next section comes from. And because $x_{i}$ and $\mathbf k_{\perp i}$ are invariant under the kinematic boosts, the wave function itself is frame independent; only the probability interpretation is frame dependent.</p>
+
+<p class="mb-p">Discretised light-cone quantisation turns this into a matrix problem. Put the theory in a box along $x^{-}$:</p>
+
+<div class="mb-eq">$$P^{+}=\frac{2\pi K}{L},\qquad x_{i}=\frac{n_{i}}{K},\qquad n_{i}=1,\dots,K ,$$</div>
+
+<p class="mb-p">then diagonalise $H_{LC}$. The eigenvalues are the mass spectrum and the eigenvectors are the wave functions — one matrix, both answers.</p>
+
+<p class="mb-p">For scale, one profile that is derived rather than fitted is the light-front holographic one, whose single scale $\kappa$ comes out of the bound-state equation:</p>
+
+<div class="mb-eq">$$\psi(x,\mathbf k_{\perp})\ \propto\ \sqrt{x(1-x)}\ \exp\!\Big[-\frac{\mathbf k_{\perp}^{2}}{2\kappa^{2}x(1-x)}\Big] .$$</div>
+
+<p class="mb-p">It is a model of a two-body system, not of the proton, and it is quoted here only because it shows the shape a derived wave function takes: the $x(1-x)$ in the exponent is the two-body energy denominator, not a fitting parameter.</p>
+
+<!-- /block:lf-wavefunction -->
+
+<!-- block:fock-proton -->
+
+<h3 class="mb-h">From the expansion to a truncated proton</h3>
+
+<p class="mb-p">For a baryon the sum starts at three constituents, and the allowed sectors are fixed by two quantum numbers that truncation has to respect — colour singlet, and baryon number:</p>
+
+<div class="mb-eq">$$|p\rangle=\sum_{n=3}^{N}\sum_{\{c\}}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\ \psi_{n/p}\big(x_{i},\mathbf k_{\perp i},\lambda_{i};c_{i}\big)\ |n;c\rangle ,\qquad n_{q}-n_{\bar q}=3 .$$</div>
+
+<p class="mb-p">Read as an operator acting on the light-front vacuum, the proton truncated at $N$ is a sum of creation-operator products, each contracted with a colour-singlet tensor:</p>
+
+<div class="mb-eq">$$|p\rangle_{N}=\hat{\mathcal O}^{\dagger}_{p,N}\,|0\rangle_{\rm LF},\qquad \hat{\mathcal O}^{\dagger}_{p,N}=\sum_{n=3}^{N}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\ \psi_{n/p}\ \Phi^{(n)}_{c_{1}\dots c_{n}}\ \prod_{i=1}^{n}\hat a^{\dagger}_{i}.$$</div>
+
+<p class="mb-p">Here $\Phi^{(3)}_{abc}=\varepsilon_{abc}/\sqrt{6}$ is the usual three-quark singlet; for $n>3$, $\Phi^{(n)}$ is the corresponding singlet tensor on $n$ colour indices, and the product runs over quarks and antiquarks alike. The first three sectors:</p>
+
+<ul class="mb-list">
+  <li>$n=3$ — $|uud\rangle$: the valence sector. It is the only one that contributes to the leading-twist valence sum rules, and the only one where a two-parameter model can pretend to be a calculation.</li>
+  <li>$n=4$ — $|uud\,g\rangle$: required for the gluon distribution and for the momentum sum rule. The gluon is not a small correction here; in the infinite-momentum frame it carries about half the proton's momentum.</li>
+  <li>$n=5$ — $|uud\,q\bar q\rangle$ and $|uud\,gg\rangle$: the sea. This is where the antiquark distributions and the $d/u$ asymmetry of the proton live, and it is the sector where the light-cone picture stops being intuitive.</li>
+</ul>
+
+<h3 class="mb-h">What the truncation costs</h3>
+
+<p class="mb-p">Cutting the sum at $N$ is not an approximation that can be forgotten afterwards. Three things break, and each one has to be paid for explicitly.</p>
+
+<p class="mb-p"><strong>Probability leaks out of the kept space.</strong> The dropped sectors carry real probability, so the kept ones are short:</p>
+
+<div class="mb-eq">$$\sum_{n=3}^{N}P_{n}=1-\delta_{N},\qquad \delta_{N}=\sum_{n>N}P_{n}\ \ge 0 .$$</div>
+
+<p class="mb-p">The deficit $\delta_{N}$ should be quoted with every truncated result. It is the one number that says how much of the state the calculation has never seen.</p>
+
+<p class="mb-p"><strong>The momentum sum rule stops closing.</strong> Momentum conservation is a statement about all sectors at once,</p>
+
+<div class="mb-eq">$$\sum_{q}\int_{0}^{1}\mathrm d x\ x\,f_{q}(x)+\int_{0}^{1}\mathrm d x\ x\,f_{g}(x)=1 ,$$</div>
+
+<p class="mb-p">so a truncated basis gives strictly less than one. At $N=3$ the gluon and sea momentum is simply absent; the deficit is not an error in the calculation, it is the calculation working as specified.</p>
+
+<p class="mb-p"><strong>The eigenvector stops being an eigenvector of the original Hamiltonian.</strong> Deleting sectors is the same as replacing $H$ by an effective operator on the kept space, and restoring the physics requires three things in practice:</p>
+
+<ul class="mb-list">
+  <li><em>sector-dependent counterterms</em> — one mass counterterm per sector, fixed so that the truncated eigenvalue reproduces the physical mass;</li>
+  <li><em>induced interactions</em> — vertices generated by integrating out the deleted sectors, which do not appear in the original Lagrangian and must be added deliberately or shown to be small;</li>
+  <li><em>a frame test</em> — truncation is not boost invariant, so a result is only meaningful once it has been shown stable under a change of $\mathbf P_{\perp}$ or of the DLCQ resolution $K$.</li>
+</ul>
+
+<p class="mb-p">Zero modes deserve their own line. In the $A^{+}=0$ gauge the Fock expansion has no condensate — the trivial vacuum is the point of the whole construction — but the constrained field components still carry zero-mode information, and whatever symmetry breaking survives to the light front is stored there rather than in the Fock sectors.</p>
+
+<h3 class="mb-h">Choosing the sectors</h3>
+
+<p class="mb-p">There is no universally right $N$. The choice follows from the operator being evaluated, and it is worth stating the rule rather than the answer:</p>
+
+<ul class="mb-list">
+  <li><em>Match the sector to the operator.</em> A gluon distribution needs at least $|uud\,g\rangle$; an antiquark distribution needs at least $|uud\,q\bar q\rangle$; a valence sum rule can survive at $N=3$.</li>
+  <li><em>Watch $P_{n}$ decay.</em> If $P_{5}$ is comparable to $P_{3}$, the truncation is not an approximation, it is a guess wearing one.</li>
+  <li><em>Count the cost twice.</em> The DLCQ basis grows combinatorially in $K$ and in $n$, and every extra sector also needs its own counterterm, so the second cost arrives after the first has been paid.</li>
+</ul>
+
+<p class="mb-p">The operational statement is the checkable one: quote $N$, quote $\delta_{N}$, and show that the observable moves less than $\delta_{N}$ when $N$ is raised by one.</p>
+
+<!-- /block:fock-proton -->
+
+<!-- block:sidis -->
+
+<h3 class="mb-h">SIDIS at first order in the lepton probe</h3>
+
+<p class="mb-p">At first order in the electromagnetic coupling the process is one virtual photon exchanged between the lepton and a quark of the target. Everything below is that single diagram — no Z exchange, no radiative corrections, no two-photon exchange.</p>
+
+<figure class="fd">
+<svg viewBox="0 0 560 280" role="img" aria-label="Semi-inclusive DIS in one-photon exchange">
+  <defs>
+    <marker id="s-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" stroke="none"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M48,50 L250,96" marker-end="url(#s-arw)"/>
+    <path d="M250,96 L452,50" marker-end="url(#s-arw)"/>
+    <path d="M250,98 q7,5 0,10 t0,10 t0,10 t0,10 t0,10 t0,10 t0,10"/>
+    <path d="M109,178 L381,178" marker-end="url(#s-arw)"/>
+    <path d="M407,178 L520,142" marker-end="url(#s-arw)"/>
+    <path d="M407,178 L520,216" marker-end="url(#s-arw)"/>
+    <path d="M106,189 L186,243" stroke-dasharray="5 5" marker-end="url(#s-arw)"/>
+  </g>
+  <path d="M44,174 L82,174" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M44,182 L82,182" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="96" cy="178" r="13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <circle cx="394" cy="178" r="13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <g fill="currentColor" font-family="inherit" font-size="13">
+    <text x="54" y="40" font-style="italic">l(k)</text>
+    <text x="410" y="40" font-style="italic">l′(k′)</text>
+    <text x="266" y="142" font-style="italic">γ∗(q)</text>
+    <text x="48" y="166" font-style="italic">P</text>
+    <text x="472" y="134" font-style="italic">h(P<tspan font-size="9" dy="3">h</tspan><tspan dy="-3">)</tspan></text>
+    <text x="474" y="228" font-style="italic">X</text>
+    <text x="196" y="252">remnant</text>
+  </g>
+</svg>
+<figcaption>One-photon exchange. Upper line: the lepton, radiating the spacelike photon. Lower line: the proton (double line on the left) resolved into a struck quark and a spectator remnant; the right-hand blob is fragmentation into the detected hadron <em>h</em> plus the unobserved remainder <em>X</em>.</figcaption>
+</figure>
+<figcaption>One-photon exchange. Upper line: the lepton, radiating the spacelike photon. Lower line: the proton (double line on the left) resolved into a struck quark and a spectator remnant; the right-hand blob is fragmentation into the detected hadron <em>h</em> plus the unobserved remainder <em>X</em>.</figcaption>
+</figure>
+
+<p class="mb-p">Kinematics, with the photon momentum $q=k-k'$ and $M$ the proton mass:</p>
+
+<div class="mb-eq">$$q=k-k',\qquad Q^{2}=-q^{2},\qquad x_{B}=\frac{Q^{2}}{2\,P\cdot q},\qquad y=\frac{P\cdot q}{P\cdot k},\qquad z=\frac{P\cdot P_{h}}{P\cdot q},\qquad \gamma=\frac{2M x_{B}}{Q}.$$</div>
+
+<p class="mb-p">The amplitude factors into a lepton current and a hadronic matrix element,</p>
+
+<div class="mb-eq">$$\mathcal M=\frac{e^{2}}{Q^{2}}\ \bar u(k')\gamma_{\mu}u(k)\ \langle X;P_{h}|\,J^{\mu}(0)\,|P\rangle ,$$</div>
+
+<p class="mb-p">so the cross section is a contraction of two tensors. The lepton one is pure kinematics for an unpolarised massless lepton,</p>
+
+<div class="mb-eq">$$L_{\mu\nu}=2\big(k_{\mu}k'_{\nu}+k_{\nu}k'_{\mu}-g_{\mu\nu}\,k\!\cdot\!k'\big),$$</div>
+
+<p class="mb-p">and every bit of the strong interaction sits in the hadron tensor — a sum over the unobserved remainder with the detected hadron held fixed:</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\frac{1}{4\pi}\sum_{X}\int\mathrm d^{4}r\ e^{iq\cdot r}\ \langle P|\,J^{\mu\dagger}(r)\,|X;P_{h}\rangle\langle X;P_{h}|\,J^{\nu}(0)\,|P\rangle .$$</div>
+
+<p class="mb-p">The differential cross section is the contraction, differential in the six variables that fix the final state:</p>
+
+<div class="mb-eq">$$\frac{\mathrm d^{6}\sigma}{\mathrm d x\,\mathrm d y\,\mathrm d z\,\mathrm d\phi_{h}\,\mathrm d P_{h\perp}^{2}\,\mathrm d\psi}=\frac{\alpha^{2}y}{2Q^{4}}\ L_{\mu\nu}\,W^{\mu\nu},$$</div>
+
+<p class="mb-p">with $\phi_{h}$ the azimuth of the hadron about the photon direction and $\psi$ the azimuth of the lepton plane. Both tensors above are spin-averaged and the coupling is carried by the amplitude, so no $e^{2}$ survives in either.</p>
+
+<p class="mb-p">Everything measurable is in how $W^{\mu\nu}$ decomposes. Contracting with $L_{\mu\nu}$ and expanding in the vectors the process makes available yields one structure function per allowed azimuthal modulation:</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\sum_{i}\mathcal W^{\mu\nu}_{i}\,F_{i},\qquad F_{i}\in\big\{F_{UU,T},\ F_{UU,L},\ F_{UU}^{\cos\phi_{h}},\ F_{UU}^{\cos 2\phi_{h}},\ F_{UT}^{\sin(\phi_{h}-\phi_{S})},\ F_{UT}^{\sin(\phi_{h}+\phi_{S})},\ \dots\big\},$$</div>
+
+<p class="mb-p">where the subscripts are the polarisations of beam and target. At leading twist the first two are the transverse and longitudinal pieces, and the modulations are where the three-dimensional physics lives: $F_{UT}^{\sin(\phi_{h}-\phi_{S})}$ is the Sivers asymmetry, an unpolarised quark correlated with the transverse spin of the proton; $F_{UT}^{\sin(\phi_{h}+\phi_{S})}$ is the Collins asymmetry, the same correlation on the fragmentation side; $F_{UU}^{\cos 2\phi_{h}}$ is Boer–Mulders.</p>
+
+<p class="mb-p">One warning about the prefactor. Papers differ in whether $y$, $1/(xyQ^{2})$ or $1/(2Q^{4})$ is pulled out in front, and the difference is not always absorbed in the structure-function definition. What cannot differ is the normalisation of $L_{\mu\nu}$ and $W^{\mu\nu}$ stated above — once those are fixed, the prefactor is checkable rather than conventional.</p>
+
+<!-- /block:sidis -->
+
+<!-- block:dy -->
+
+<h3 class="mb-h">Drell–Yan: the same factorisation from the other side</h3>
+
+<p class="mb-p">A quark from one hadron annihilates with an antiquark from the other into a virtual photon, which decays into a lepton pair. At leading order it is one diagram:</p>
+
+<figure class="fd">
+<svg viewBox="0 0 520 260" role="img" aria-label="Drell-Yan q qbar annihilation into a lepton pair">
+  <defs>
+    <marker id="d-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" stroke="none"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M52,64 L250,130" marker-end="url(#d-arw)"/>
+    <path d="M52,196 L250,130" marker-end="url(#d-arw)"/>
+    <path d="M250,130 q5,-7 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0"/>
+    <path d="M370,130 L470,80" marker-end="url(#d-arw)"/>
+    <path d="M370,130 L470,184" marker-end="url(#d-arw)"/>
+  </g>
+  <g fill="currentColor" font-family="inherit" font-size="13">
+    <text x="58" y="50" font-style="italic">q(x<tspan font-size="9" dy="3">A</tspan><tspan dy="-3">)</tspan></text>
+    <text x="58" y="216" font-style="italic">q̄(x<tspan font-size="9" dy="3">B</tspan><tspan dy="-3">)</tspan></text>
+    <text x="292" y="116" font-style="italic">γ∗(Q)</text>
+    <text x="452" y="70" font-style="italic">l⁻</text>
+    <text x="452" y="204" font-style="italic">l⁺</text>
+  </g>
+</svg>
+<figcaption>Drell–Yan at leading order: quark–antiquark annihilation through a timelike photon. Colour is summed at the quark vertex and the lepton pair is produced back-to-back in the pair rest frame.</figcaption>
+</figure>
+<figcaption>Drell–Yan at leading order: quark–antiquark annihilation through a timelike photon. Colour is summed at the quark vertex and the lepton pair is produced back-to-back in the pair rest frame.</figcaption>
+</figure>
+
+<p class="mb-p">With $P_{A}$, $P_{B}$ the two beam momenta and $q$ the pair momentum, the kinematics are fixed by two numbers:</p>
+
+<div class="mb-eq">$$Q^{2}=q^{2},\qquad \tau=\frac{Q^{2}}{s},\qquad x_{A}=\sqrt{\tau}\,e^{\,y},\qquad x_{B}=\sqrt{\tau}\,e^{-y},$$</div>
+
+<p class="mb-p">where $y$ is the rapidity of the pair and $\sqrt{s}$ the centre-of-mass energy. The hadron tensor has the same shape as in SIDIS, but with two incoming hadrons and no detected final-state hadron:</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\frac{1}{4\pi}\int\mathrm d^{4}r\ e^{iq\cdot r}\ \langle P_{A}P_{B}|\,J^{\mu\dagger}(r)\,J^{\nu}(0)\,|P_{A}P_{B}\rangle .$$</div>
+
+<p class="mb-p">In the parton model at leading order the differential cross section is</p>
+
+<div class="mb-eq">$$\frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y}=\frac{4\pi\alpha^{2}}{9\,Q^{2}s}\sum_{q}e_{q}^{2}\Big[\,q(x_{A})\,\bar q(x_{B})+\bar q(x_{A})\,q(x_{B})\,\Big],$$</div>
+
+<p class="mb-p">and the lepton pair is not isotropic: its angular distribution carries the spin-one nature of the intermediate photon,</p>
+
+<div class="mb-eq">$$\frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y\,\mathrm d\Omega}=\frac{3}{16\pi}\ \frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y}\ \big(1+\cos^{2}\theta\big),$$</div>
+
+<p class="mb-p">with $\theta$ the polar angle of the negative lepton in the pair rest frame. The normalisation is fixed by $\int\mathrm d\Omega\,(1+\cos^{2}\theta)=16\pi/3$, which is why the two constants appear together.</p>
+
+<p class="mb-p">Two features are worth naming because they are what makes DY more than a cross-check. The factor $9$ is $3\times3$: one factor of three from the angular integral of the elementary cross section, one from averaging over the colours of the incoming quark and antiquark. And the same structure functions appear here as in SIDIS — but the gauge links run the other way round, so the Sivers function changes sign between the two processes. That sign is the reason the two have to be fitted together rather than compared afterwards.</p>
+
+<!-- /block:dy -->

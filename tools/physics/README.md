@@ -20,7 +20,13 @@ This directory is the **only** source of those numbers.
 ```
 tools/physics/build_numerics.py   →  assets/physics-data.json   (values + machine checks)
 tools/physics/render_section.mjs  →  notes.html                 (KaTeX, rendered at build time)
+tools/physics/notes-body.html     →  tools/physics/render_math.mjs → notes.html
 ```
+
+`notes-body.html` is the exposition: prose in HTML, mathematics in plain LaTeX
+(`$...$` inline, `$$...$$` display), Feynman diagrams as inline SVG. `render_math.mjs`
+renders it into `notes.html` between `<!-- mb:... -->` markers, so the LaTeX stays
+readable and diffable in the source and the page still ships without any client JS.
 
 `notes.html` only reads the generated HTML between `<!-- phys:<id> -->` markers.
 Do not edit those blocks by hand — the next render overwrites them.
@@ -36,6 +42,7 @@ node  tools/physics/render_section.mjs     # regenerate the HTML blocks
 
 python tools/physics/build_numerics.py --check    # drift gate
 node  tools/physics/render_section.mjs --check    # drift gate
+node  tools/physics/render_math.mjs --check       # drift gate
 ```
 
 The `verify` job in `.github/workflows/pages.yml` runs both `--check` commands, so a

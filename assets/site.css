@@ -417,6 +417,38 @@
     .eq-row{grid-template-columns:minmax(64px,auto) 1fr auto;gap:10px}
     .eq-v{font-size:12.5px}
   }
+
+  /* ---- physics notes: exposition blocks（源码 tools/physics/notes-body.html）---- */
+  .mb-h{
+    margin-top:34px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);
+  }
+  .mb-p{
+    margin-top:14px;font-size:15.5px;line-height:1.8;color:var(--body-2);
+    max-width:660px;
+  }
+  .mb-p strong{font-weight:500;color:var(--ink)}
+  .mb-p em,.mb-list em{font-style:normal;color:var(--ink);border-bottom:1px solid var(--line)}
+  .mb-eq{
+    margin-top:16px;padding:2px 0;overflow-x:auto;overflow-y:hidden;
+    color:var(--ink);font-size:1.02em;
+  }
+  .mb-eq .katex-display{margin:.35em 0}
+  .mb-eq .katex-display>.katex{text-align:left}
+  .mb-list{margin-top:12px;padding-left:16px;max-width:660px}
+  .mb-list li{font-size:15px;line-height:1.75;color:var(--body-2);margin-top:7px}
+  .mb-list li::marker{color:var(--tick)}
+  .fd{margin:26px 0 0;max-width:660px}
+  .fd svg{display:block;width:100%;height:auto;max-width:520px;color:var(--ink)}
+  .fd figcaption{
+    margin-top:12px;font-family:var(--mono);font-size:10.5px;line-height:1.7;
+    color:var(--faint);max-width:560px;
+  }
+  .fd figcaption em{font-style:italic}
+  @media (max-width:560px){
+    .mb-p,.mb-list li{font-size:15px}
+    .mb-eq{font-size:.88em}   /* 长公式在窄屏靠横向滑动，缩小字号减少滑动 */
+  }
   .paper-links{display:flex;align-items:center;gap:22px;margin-top:26px;flex-wrap:wrap}
   .paper-links a,.paper-links button{
     font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--accent);

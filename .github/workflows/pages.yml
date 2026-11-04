@@ -40,6 +40,9 @@ jobs:
       - name: Rendered HTML drift
         run: node tools/physics/render_section.mjs --check
 
+      - name: Rendered math drift
+        run: node tools/physics/render_math.mjs --check
+
   deploy:
     needs: verify
     runs-on: ubuntu-latest
