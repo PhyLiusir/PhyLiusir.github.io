@@ -43,6 +43,9 @@ jobs:
       - name: Rendered math drift
         run: node tools/physics/render_math.mjs --check
 
+      - name: Notes physics
+        run: python tools/physics/verify_notes.py
+
   deploy:
     needs: verify
     runs-on: ubuntu-latest

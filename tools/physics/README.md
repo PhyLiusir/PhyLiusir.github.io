@@ -43,6 +43,7 @@ node  tools/physics/render_section.mjs     # regenerate the HTML blocks
 python tools/physics/build_numerics.py --check    # drift gate
 node  tools/physics/render_section.mjs --check    # drift gate
 node  tools/physics/render_math.mjs --check       # drift gate
+python tools/physics/verify_notes.py             # DY angular distribution, by Dirac algebra
 ```
 
 The `verify` job in `.github/workflows/pages.yml` runs both `--check` commands, so a
