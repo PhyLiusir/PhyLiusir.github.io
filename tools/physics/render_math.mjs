@@ -117,6 +117,14 @@ function main() {
   if (process.argv.includes("--check")) {
     if (out !== page) {
       console.error("notes.html is stale (math blocks) — rerun: node tools/physics/render_math.mjs");
+      // 只说「过期」在 CI 日志里等于没说；把第一处差异指出来。
+      let i = 0;
+      while (i < out.length && i < page.length && out[i] === page[i]) i += 1;
+      const ctx = (str) => JSON.stringify(str.slice(Math.max(0, i - 70), i + 70));
+      console.error(`  first difference at index ${i} (rendered ${out.length}, on disk ${page.length} chars)`);
+      console.error(`  rendered: ${ctx(out)}`);
+      console.error(`  on disk : ${ctx(page)}`);
+      console.error(`  page uses CRLF: ${page.includes(CRLF)}`);
       process.exit(1);
     }
     console.log(`phys-math: OK (${blocks.size} blocks, en+zh)`);
