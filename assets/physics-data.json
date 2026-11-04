@@ -1,6 +1,6 @@
 {
   "schema": "physics-numerics/1",
-  "generated_utc": "2026-11-04T13:33:07Z",
+  "generated_utc": "2026-11-04T13:41:33Z",
   "provenance": {
     "generator": "tools/physics/build_numerics.py",
     "python": "3.13.0",
@@ -128,7 +128,7 @@
       },
       "symbolic": {
         "identity": "闭合式 x_B = Q²/(s y) 与定义 x_B = Q²/(2P·q) 等价",
-        "result": "两条路径差 < 1e-12",
+        "result": "两条路径在精确算术下差为 0",
         "latex": "y=1-\\frac{E'}{E}\\cos^{2}\\frac{\\theta}{2}"
       },
       "numeric": {
@@ -152,20 +152,20 @@
         {
           "id": "two-path-Q2",
           "status": "pass",
-          "detail": "闭合式与四矢量差 1.00974E-28 GeV²",
-          "en": "closed form vs. four-vector contraction agree to 1e-28"
+          "detail": "闭合式与四矢量差为 0（精确算术，非数值接近）",
+          "en": "closed form and four-vector contraction agree exactly"
         },
         {
           "id": "two-path-y",
           "status": "pass",
-          "detail": "差 0E-131",
-          "en": "y from cos²(θ/2) equals (P·q)/(P·k)"
+          "detail": "两条路径的 y 精确相等",
+          "en": "both routes give exactly the same y"
         },
         {
           "id": "two-path-x",
           "status": "pass",
-          "detail": "差 0E-149",
-          "en": "x_B from Q²/(s y) equals Q²/(2P·q)"
+          "detail": "两条路径的 x_B 精确相等",
+          "en": "both routes give exactly the same x_B"
         },
         {
           "id": "xy-s",
@@ -192,5 +192,5 @@
     "total": 3,
     "failed": 0
   },
-  "content_hash": "af6edb6dd628f40d"
+  "content_hash": "86503cda23f2bdc4"
 }

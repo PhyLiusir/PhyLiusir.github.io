@@ -34,7 +34,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / "assets" / "physics-data.json"
 
 # --- 物理常数（CODATA 2022，GeV 单位） -------------------------------------
-M_P = sp.Float("0.93827208943", 30)  # 质子质量 GeV
+M_P = sp.Rational(93827208943, 10**11)  # 质子质量 0.93827208943 GeV（CODATA 2022，精确有理数）
 DIGITS = 15
 
 
@@ -61,9 +61,9 @@ EN = {
     ("fock-normalisation", "sym-vs-montecarlo"): "2M-point simplex sampling agrees with the symbolic value",
     ("fock-normalisation", "value"): "∫x₁x₂x₃ dΣ = 1/120",
     ("fock-normalisation", "units"): "momentum fractions are dimensionless; Ψ is normalised by N",
-    ("dis-kinematics", "two-path-Q2"): "closed form vs. four-vector contraction agree to 1e-28",
-    ("dis-kinematics", "two-path-y"): "y from cos²(θ/2) equals (P·q)/(P·k)",
-    ("dis-kinematics", "two-path-x"): "x_B from Q²/(s y) equals Q²/(2P·q)",
+    ("dis-kinematics", "two-path-Q2"): "closed form and four-vector contraction agree exactly",
+    ("dis-kinematics", "two-path-y"): "both routes give exactly the same y",
+    ("dis-kinematics", "two-path-x"): "both routes give exactly the same x_B",
     ("dis-kinematics", "xy-s"): "x·y·s = Q² (redundant bookkeeping, not independent evidence)",
     ("dis-kinematics", "W2-positive"): "W² sits above M_p², so the hadronic final state is allowed",
     ("dis-kinematics", "units"): "Q² and s in GeV², x and y dimensionless",
@@ -165,11 +165,12 @@ def claim_light_front() -> dict:
 def claim_dis() -> dict:
     global _CUR
     _CUR = "dis-kinematics"
-    # HERA 典型束流
-    E_e = sp.Float("27.6", 30)   # 电子束能 GeV
-    E_p = sp.Float("920", 30)    # 质子束能 GeV
-    E_s = sp.Float("10.0", 30)   # 散射电子能量 GeV
-    theta = sp.rad(sp.Float("150", 30))  # 散射角，相对入射电子方向
+    # HERA 典型束流。全部走精确有理数/根式：Float 会把「恒等」变成 1e-28 的噪声，
+    # 而噪声的显示位数是平台相关的 —— 这正是 Linux 上的漂移门禁抓到的那个问题。
+    E_e = sp.Rational(276, 10)          # 电子束能 27.6 GeV
+    E_p = sp.Integer(920)               # 质子束能 GeV
+    E_s = sp.Integer(10)                # 散射电子能量 GeV
+    theta = sp.Rational(5, 6) * sp.pi   # 150°，sin/cos 取精确根式
 
     # --- 路径 A：教科书的闭合公式 ---
     Q2_a = 4 * E_e * E_s * sp.sin(theta / 2) ** 2
@@ -178,14 +179,8 @@ def claim_dis() -> dict:
     x_a = Q2_a / (s * y_a)
 
     # --- 路径 B：四矢量直算（不经过上面任何公式）---
-    # 电子沿 -z 入射，散射后与 -z 成 theta 角、取 phi=0
     k = sp.Matrix([E_e, 0, 0, -E_e])
-    kp = sp.Matrix([
-        E_s,
-        E_s * sp.sin(theta),
-        sp.Integer(0),
-        -E_s * sp.cos(theta),
-    ])
+    kp = sp.Matrix([E_s, E_s * sp.sin(theta), sp.Integer(0), -E_s * sp.cos(theta)])
     P = sp.Matrix([E_p, 0, 0, E_p])
     q = k - kp
 
@@ -193,24 +188,21 @@ def claim_dis() -> dict:
     y_b = _dot(P, q) / _dot(P, k)
     x_b = Q2_b / (2 * _dot(P, q))
 
-    dQ2 = sp.simplify(Q2_a - Q2_b)
-    dy = sp.simplify(y_a - y_b)
-    dx = sp.simplify(x_a - x_b)
-
-    tol = sp.Float("1e-12")
-    ok = all(abs(sp.N(v, 30)) < tol for v in (dQ2, dy, dx))
+    dQ2 = sp.radsimp(sp.simplify(Q2_a - Q2_b))
+    dy = sp.radsimp(sp.simplify(y_a - y_b))
+    dx = sp.radsimp(sp.simplify(x_a - x_b))
 
     # W² 一致性：由 Q²、x 反推强子末态质量
-    W2 = sp.simplify(Q2_a * (1 / x_a - 1) + M_P**2)
+    W2 = sp.radsimp(sp.simplify(Q2_a * (1 / x_a - 1) + M_P**2))
 
     checks = [
-        _check("two-path-Q2", abs(sp.N(dQ2, 30)) < tol,
-               f"闭合式与四矢量差 {sp.N(dQ2, 6)} GeV²"),
-        _check("two-path-y", abs(sp.N(dy, 30)) < tol, f"差 {sp.N(dy, 6)}"),
-        _check("two-path-x", abs(sp.N(dx, 30)) < tol, f"差 {sp.N(dx, 6)}"),
-        _check("xy-s", abs(sp.N(x_a * y_a * s - Q2_a, 30)) < sp.Float("1e-9") * Q2_a,
+        _check("two-path-Q2", sp.simplify(dQ2) == 0,
+               "闭合式与四矢量差为 0（精确算术，非数值接近）"),
+        _check("two-path-y", sp.simplify(dy) == 0, "两条路径的 y 精确相等"),
+        _check("two-path-x", sp.simplify(dx) == 0, "两条路径的 x_B 精确相等"),
+        _check("xy-s", sp.simplify(x_a * y_a * s - Q2_a) == 0,
                "x·y·s = Q² 自洽（此处作冗余登记，非独立证据）"),
-        _check("W2-positive", bool(sp.N(W2, 30) > M_P**2), f"W² = {sp.N(W2, 8)} GeV² ≥ M_p²"),
+        _check("W2-positive", bool(sp.N(W2 - M_P**2, 30) > 0), f"W² = {sp.N(W2, 8)} GeV² ≥ M_p²"),
         _check("units", True, "Q²:GeV²，s:GeV²，x,y 无量纲"),
     ]
 
@@ -225,7 +217,7 @@ def claim_dis() -> dict:
         },
         "symbolic": {
             "identity": "闭合式 x_B = Q²/(s y) 与定义 x_B = Q²/(2P·q) 等价",
-            "result": "两条路径差 < 1e-12",
+            "result": "两条路径在精确算术下差为 0",
             "latex": r"y=1-\frac{E'}{E}\cos^{2}\frac{\theta}{2}",
         },
         "numeric": {
