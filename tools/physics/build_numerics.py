@@ -309,6 +309,43 @@ def claim_fock() -> dict:
 # ---------------------------------------------------------------------------
 
 
+def _canon(payload: dict) -> str:
+    """「内容」= 数字与判据。
+
+    时间戳和 python 小版本属于环境元数据：把它们算进哈希，
+    换一台机器就会伪报漂移（CI 跑 3.12，本机 3.13）。
+    """
+    return json.dumps(
+        {"schema": payload["schema"], "claims": payload["claims"]},
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+
+
+def _first_diff(a, b, trail="") -> str | None:
+    if type(a) is not type(b):
+        return f"{trail or '<root>'}: {type(a).__name__} vs {type(b).__name__}"
+    if isinstance(a, dict):
+        for k in a.keys() | b.keys():
+            if k not in a or k not in b:
+                return f"{trail}.{k}: only in {'generated' if k in a else 'on-disk'}"
+            d = _first_diff(a[k], b[k], f"{trail}.{k}" if trail else k)
+            if d:
+                return d
+        return None
+    if isinstance(a, list):
+        if len(a) != len(b):
+            return f"{trail}: length {len(a)} vs {len(b)}"
+        for i, (x, y) in enumerate(zip(a, b)):
+            d = _first_diff(x, y, f"{trail}[{i}]")
+            if d:
+                return d
+        return None
+    if a != b:
+        return f"{trail}: {a!r} != {b!r}"
+    return None
+
+
 def build() -> dict:
     claims = [claim_light_front(), claim_fock(), claim_dis()]
     payload = {
@@ -328,13 +365,7 @@ def build() -> dict:
         "failed": sum(1 for c in claims for k in c["checks"] if k["status"] == "fail"),
     }
     payload["summary"] = summary
-    # 哈希只覆盖内容，不覆盖时间戳——否则每次重算都会伪报漂移。
-    canon = json.dumps(
-        {k: v for k, v in payload.items() if k != "generated_utc"},
-        sort_keys=True,
-        ensure_ascii=False,
-    )
-    payload["content_hash"] = hashlib.sha256(canon.encode()).hexdigest()[:16]
+    payload["content_hash"] = hashlib.sha256(_canon(payload).encode()).hexdigest()[:16]
     return payload
 
 
@@ -358,9 +389,11 @@ def main(argv: list[str]) -> int:
             print(f"missing {OUT}", file=sys.stderr)
             return 1
         old = json.loads(OUT.read_text(encoding="utf-8"))
-        strip = lambda d: {k: v for k, v in d.items() if k != "generated_utc"}
-        if strip(old) != strip(json.loads(text)):
+        fresh = json.loads(text)
+        if _canon(old) != _canon(fresh):
+            where = _first_diff(json.loads(_canon(old)), json.loads(_canon(fresh)))
             print("phys-numerics: DRIFT — 磁盘上的数据与生成器不一致，请重跑 build_numerics.py", file=sys.stderr)
+            print(f"  first difference: {where}", file=sys.stderr)
             return 1
         print(f"phys-numerics: OK ({len(payload['claims'])} claims, hash {payload['content_hash']})")
         return 0

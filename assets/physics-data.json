@@ -1,6 +1,6 @@
 {
   "schema": "physics-numerics/1",
-  "generated_utc": "2026-11-04T13:41:33Z",
+  "generated_utc": "2026-11-04T13:42:42Z",
   "provenance": {
     "generator": "tools/physics/build_numerics.py",
     "python": "3.13.0",
@@ -192,5 +192,5 @@
     "total": 3,
     "failed": 0
   },
-  "content_hash": "86503cda23f2bdc4"
+  "content_hash": "712e47f433afc124"
 }
