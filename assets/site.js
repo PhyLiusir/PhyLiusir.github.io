@@ -9,8 +9,15 @@
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-zh]'));
   nodes.forEach(function (el) { el.dataset.en = el.innerHTML; });
 
-  var titleEN = doc.dataset.titleEn || document.title;
-  var titleZH = doc.dataset.titleZh || titleEN;
+  var TITLES = {
+    ai: { en: doc.dataset.titleEn, zh: doc.dataset.titleZh },
+    physics: { en: doc.dataset.titlePhysicsEn, zh: doc.dataset.titlePhysicsZh }
+  };
+
+  function applyTitle() {
+    var t = TITLES[doc.dataset.track === 'physics' ? 'physics' : 'ai'] || TITLES.ai;
+    document.title = doc.dataset.lang === 'zh' ? (t.zh || t.en) : (t.en || t.zh);
+  }
 
   function setLang(lang) {
     doc.dataset.lang = lang;
@@ -18,7 +25,7 @@
     nodes.forEach(function (el) {
       el.innerHTML = lang === 'zh' ? el.dataset.zh : el.dataset.en;
     });
-    document.title = lang === 'zh' ? titleZH : titleEN;
+    applyTitle();
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang-btn]'), function (b) {
       var on = b.dataset.langBtn === lang;
       b.classList.toggle('is-active', on);
@@ -34,6 +41,35 @@
   var savedLang = null;
   try { savedLang = localStorage.getItem('site-lang'); } catch (e) {}
   setLang(savedLang === 'zh' ? 'zh' : 'en');
+
+  /* ---------------- track: AI / Physics ---------------- */
+  var TRACK_KEY = 'site-track';
+
+  function setTrack(track) {
+    doc.dataset.track = track === 'physics' ? 'physics' : 'ai';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-track-btn]'), function (b) {
+      var on = b.dataset.trackBtn === doc.dataset.track;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    applyTitle();
+    try { localStorage.setItem(TRACK_KEY, doc.dataset.track); } catch (e) {}
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-track-btn]'), function (b) {
+    b.addEventListener('click', function () { setTrack(b.dataset.trackBtn); });
+  });
+
+  var savedTrack = null;
+  try { savedTrack = localStorage.getItem(TRACK_KEY); } catch (e) {}
+  // ?track=physics wins, so a track is shareable
+  var urlTrack = null;
+  try {
+    urlTrack = new URLSearchParams(location.search).get('track');
+  } catch (e) {}
+  setTrack(urlTrack === 'physics' || urlTrack === 'ai'
+    ? urlTrack
+    : (savedTrack === 'physics' ? 'physics' : 'ai'));
 
   /* ---------------- theme ---------------- */
   var THEME_KEY = 'site-theme';

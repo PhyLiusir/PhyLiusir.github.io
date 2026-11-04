@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en" data-theme="light"
+<html lang="en" data-lang="en" data-theme="light" data-track="ai"
+      data-title-physics-en="Research notes — physics · Chenxu Liu"
+      data-title-physics-zh="研究笔记 — 物理 · 刘宸旭"
       data-title-en="Research notes — Chenxu Liu"
       data-title-zh="研究笔记 — 刘宸旭">
 <head>
@@ -38,6 +40,10 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
     </nav>
 
     <div class="actions">
+      <div class="track" role="group" aria-label="Resume track">
+        <button type="button" data-track-btn="ai" aria-pressed="true">AI</button>
+        <button type="button" data-track-btn="physics" aria-pressed="false">PHYSICS</button>
+      </div>
       <button class="icon-btn" type="button" data-theme-btn aria-label="Switch to dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -51,7 +57,13 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
         <button type="button" data-lang-btn="zh" aria-pressed="false">中</button>
       </div>
-      <a class="btn" href="cv.pdf" download aria-label="Download CV (PDF)">
+      <a class="btn" data-track="ai" href="cv.pdf" download aria-label="Download CV — AI (PDF)">
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <path d="M5.5.6v6.8M5.5 7.4 2.4 4.3M5.5 7.4l3.1-3.1M.6 10.4h9.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <span data-zh="下载简历">Download CV</span>
+      </a>
+      <a class="btn" data-track="physics" href="cv-physics.pdf" download aria-label="Download CV — physics (PDF)">
         <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
           <path d="M5.5.6v6.8M5.5 7.4 2.4 4.3M5.5 7.4l3.1-3.1M.6 10.4h9.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
         </svg>
@@ -74,14 +86,15 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
 
       <h1 class="page-title" data-zh="研究笔记">Research notes</h1>
 
-      <p class="page-lede" data-zh="十个方向：问题是什么、当前在做什么、还没解决的是什么。论文与代码在陆续整理，放出来的时候会直接挂在对应方向下面。">Ten areas: what the question is, what I am doing about it now, and what is still open. Papers and repositories will hang off the matching area as they are tidied up.</p>
+      <p class="page-lede" data-track="ai" data-zh="七个方向：问题是什么、当前在做什么、还没解决的是什么。论文与代码在陆续整理，放出来的时候会直接挂在对应方向下面。">Seven areas: what the question is, what I am doing about it now, and what is still open. Papers and repositories will hang off the matching area as they are tidied up.</p>
+      <p class="page-lede" data-track="physics" data-zh="三个方向：光前量子化、重子的 Fock 基展开，以及用 DIS / SIDIS / DY 钉住质子结构。">Three areas: light-front quantization, the baryon Fock-basis expansion, and pinning down the proton with DIS, SIDIS and DY.</p>
     </div>
   </section>
 
   <section style="padding-inline:var(--pad);padding-block:0 96px">
     <div class="shell paper-list">
 
-      <article class="paper reveal" id="deployment">
+      <article class="paper reveal" data-track="ai" id="deployment">
         <div class="paper-meta">
           <span class="tag">LM 01 · LARGE MODELS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -105,7 +118,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="post-training">
+      <article class="paper reveal" data-track="ai" id="post-training">
         <div class="paper-meta">
           <span class="tag">LM 02 · LARGE MODELS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -129,7 +142,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="loop-attention">
+      <article class="paper reveal" data-track="ai" id="loop-attention">
         <div class="paper-meta">
           <span class="tag">LM 03 · LARGE MODELS</span>
           <span class="venue" data-zh="重点">MAIN LINE</span>
@@ -153,7 +166,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="agent-building">
+      <article class="paper reveal" data-track="ai" id="agent-building">
         <div class="paper-meta">
           <span class="tag">AG 01 · AGENTS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -177,7 +190,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="tools">
+      <article class="paper reveal" data-track="ai" id="tools">
         <div class="paper-meta">
           <span class="tag">AG 02 · AGENTS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -201,7 +214,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="multi-agent">
+      <article class="paper reveal" data-track="ai" id="multi-agent">
         <div class="paper-meta">
           <span class="tag">AG 03 · AGENTS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -225,7 +238,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="rag">
+      <article class="paper reveal" data-track="ai" id="rag">
         <div class="paper-meta">
           <span class="tag">AG 04 · AGENTS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -249,7 +262,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-            <article class="paper reveal" id="light-front">
+      <article class="paper reveal" data-track="physics" id="light-front" style="padding-top:0;border-top:0">
         <div class="paper-meta">
           <span class="tag">PH 01 · PHYSICS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -273,7 +286,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="fock-basis">
+      <article class="paper reveal" data-track="physics" id="fock-basis">
         <div class="paper-meta">
           <span class="tag">PH 02 · PHYSICS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -297,7 +310,7 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <article class="paper reveal" id="proton-structure">
+      <article class="paper reveal" data-track="physics" id="proton-structure">
         <div class="paper-meta">
           <span class="tag">PH 03 · PHYSICS</span>
           <span class="venue" data-zh="进行中">ONGOING</span>
@@ -321,9 +334,9 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
       </article>
 
-      <h2 class="mini-title" data-zh="论文与代码">Papers &amp; code</h2>
+      <h2 class="mini-title" data-track="ai" data-zh="论文与代码">Papers &amp; code</h2>
 
-      <div class="mini-list">
+      <div class="mini-list" data-track="ai">
         <div class="mini">
           <span class="year">2026</span>
           <div>

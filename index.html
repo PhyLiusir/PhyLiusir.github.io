@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en" data-theme="light"
+<html lang="en" data-lang="en" data-theme="light" data-track="ai"
+      data-title-physics-en="Chenxu Liu — Light-front physics"
+      data-title-physics-zh="刘宸旭 — 光前物理"
       data-title-en="Chenxu Liu — Large models &amp; agents"
       data-title-zh="刘宸旭 — 大模型与智能体">
 <head>
@@ -39,6 +41,10 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
     </nav>
 
     <div class="actions">
+      <div class="track" role="group" aria-label="Resume track">
+        <button type="button" data-track-btn="ai" aria-pressed="true">AI</button>
+        <button type="button" data-track-btn="physics" aria-pressed="false">PHYSICS</button>
+      </div>
       <button class="icon-btn" type="button" data-theme-btn aria-label="Switch to dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -52,7 +58,13 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
         <button type="button" data-lang-btn="zh" aria-pressed="false">中</button>
       </div>
-      <a class="btn" href="cv.pdf" download aria-label="Download CV (PDF)">
+      <a class="btn" data-track="ai" href="cv.pdf" download aria-label="Download CV — AI (PDF)">
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <path d="M5.5.6v6.8M5.5 7.4 2.4 4.3M5.5 7.4l3.1-3.1M.6 10.4h9.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <span data-zh="下载简历">Download CV</span>
+      </a>
+      <a class="btn" data-track="physics" href="cv-physics.pdf" download aria-label="Download CV — physics (PDF)">
         <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
           <path d="M5.5.6v6.8M5.5 7.4 2.4 4.3M5.5 7.4l3.1-3.1M.6 10.4h9.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
         </svg>
@@ -68,16 +80,19 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
     <div class="shell hero-grid">
 
       <div class="hero-copy">
-        <div class="eyebrow" data-zh="大模型与智能体 · 山东大学（青岛）">Large models &amp; agents · Shandong University, Qingdao</div>
+        <div class="eyebrow" data-track="ai" data-zh="大模型与智能体 · 山东大学（青岛）">Large models &amp; agents · Shandong University, Qingdao</div>
+        <div class="eyebrow" data-track="physics" data-zh="光前物理 · 山东大学（青岛）">Light-front physics · Shandong University, Qingdao</div>
 
         <div class="name-row">
           <h1>Chenxu Liu</h1>
           <span class="cn-name">刘宸旭</span>
         </div>
 
-        <h2 class="statement" data-zh="一侧是模型本身：怎么部署、怎么后训练、注意力该长什么样；另一侧是不得不靠它干活的智能体。">One side of my work is the model itself — how it is served, how it is post-trained, what its attention should look like. The other side is the agent that has to use it.</h2>
+        <h2 class="statement" data-track="ai" data-zh="一侧是模型本身：怎么部署、怎么后训练、注意力该长什么样；另一侧是不得不靠它干活的智能体。">One side of my work is the model itself — how it is served, how it is post-trained, what its attention should look like. The other side is the agent that has to use it.</h2>
+        <h2 class="statement" data-track="physics" data-zh="强子里看不见的那一半：光前量子化、重子的光锥 Fock 基展开，以及用三种过程钉住质子的部分子结构。">The invisible half of a hadron: light-front quantization, the Fock-basis expansion of a baryon, and three processes that pin down the proton&rsquo;s partonic structure.</h2>
 
-        <p class="lede" data-zh="山东大学前沿交叉科学青岛研究院物理学专业本科生，2024 级，预计 2028 年毕业。时间大致对半开：一半给推理与后训练，一半给智能体、工具与检索；底下垫着的是光前量子化与质子结构。习惯是先把小而丑的版本搭出来，再看它坏在哪里。">Undergraduate in physics at the Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao (class of 2024, expected 2028). My time splits roughly in half: inference and post-training on one hand, agents, tools and retrieval on the other. Underneath sits light-front physics and the structure of the proton. I usually build the small ugly version first and watch where it breaks.</p>
+        <p class="lede" data-track="ai" data-zh="山东大学前沿交叉科学青岛研究院物理学专业本科生，2024 级，预计 2028 年毕业。时间大致对半开：一半给推理与后训练，一半给智能体、工具与检索。习惯是先把小而丑的版本搭出来，再看它坏在哪里。">Undergraduate in physics at the Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao (class of 2024, expected 2028). My time splits roughly in half: inference and post-training on one hand, agents, tools and retrieval on the other. I usually build the small ugly version first and watch where it breaks.</p>
+        <p class="lede" data-track="physics" data-zh="山东大学前沿交叉科学青岛研究院物理学专业本科生，2024 级，预计 2028 年毕业。关心光前量子化与质子结构：一侧是 Fock 空间截断，一侧是横动量与三维分布。">Undergraduate in physics at the Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao (class of 2024, expected 2028). I work on light-front quantization and the structure of the proton — Fock-space truncation on one side, transverse-momentum and 3D distributions on the other.</p>
 
         <div class="cta-row">
           <a class="btn-primary" href="cv.pdf" download>
@@ -97,7 +112,8 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         <div class="now">
           <span class="k" data-zh="当前">NOW</span>
           <span class="tick"></span>
-          <span class="v" data-zh="Loop Attention：正在量化「深度复用」到底省下多少显存与墙钟时间。">Loop Attention: measuring what depth reuse actually saves in memory and wall-clock time.</span>
+          <span class="v" data-track="ai" data-zh="Loop Attention：正在量化「深度复用」到底省下多少显存与墙钟时间。">Loop Attention: measuring what depth reuse actually saves in memory and wall-clock time.</span>
+          <span class="v" data-track="physics" data-zh="固定 N 截断下的重子光前波函数：先看三夸克扇区能算到哪一步。">Fixed-N truncation of the baryon light-front wave function: how far the three-quark sector gets you.</span>
         </div>
       </div>
 
@@ -121,11 +137,13 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
         </div>
         <div class="rec-row">
           <span class="k" data-zh="方向">FOCUS</span>
-          <span class="v" data-zh="大模型 · 智能体">Large models · Agents</span>
+          <span class="v" data-track="ai" data-zh="大模型 · 智能体">Large models · Agents</span>
+          <span class="v" data-track="physics" data-zh="光前物理 · 质子结构">Light-front physics · proton structure</span>
         </div>
         <div class="rec-row">
           <span class="k" data-zh="领域">AREAS</span>
-          <span class="v" data-zh="部署 · 后训练 · 新注意力 · 工具 · 多智能体 · RAG">Deployment · post-training · attention · tools · multi-agent · RAG</span>
+          <span class="v" data-track="ai" data-zh="部署 · 后训练 · 新注意力 · 工具 · 多智能体 · RAG">Deployment · post-training · attention · tools · multi-agent · RAG</span>
+          <span class="v" data-track="physics" data-zh="光前量子化 · Fock 基 · PDF · TMD · 三维分布">Light-front · Fock basis · PDF · TMD · 3D</span>
         </div>
         <div class="rec-row">
           <span class="k" data-zh="预计">GRADUATION</span>
@@ -151,10 +169,11 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <span class="idx">01</span>
           <h2 data-zh="研究方向">Research</h2>
         </div>
-        <p class="sec-lede" data-zh="两半问题，外加一块地基：模型本身、不得不靠它干活的智能体，以及训练出这套习惯的物理。">Two halves of one problem, plus the ground they stand on: the model itself, the agent that has to use it, and the physics the habits come from.</p>
+        <p class="sec-lede" data-track="ai" data-zh="两半问题：模型本身，以及不得不靠它干活的智能体。">Two halves of one problem: the model itself, and the agent that has to use it.</p>
+        <p class="sec-lede" data-track="physics" data-zh="三条线索，一个问题：强子如何由部分子构成，哪些可观测量经得住一次诚实的截断。">Three threads on one question: how a hadron is built out of partons, and which observables survive an honest truncation.</p>
       </div>
 
-      <div class="rows">
+      <div class="rows" data-track="ai">
         <div class="group-label reveal" data-zh="大模型 · LARGE MODELS">Large models</div>
 
         <article class="row reveal">
@@ -222,6 +241,9 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <div class="tags" data-zh="检索 · 引用 · 评测集">RETRIEVAL · CITATION · EVAL SET</div>
         </article>
 
+      </div>
+
+      <div class="rows" data-track="physics">
         <div class="group-label reveal" data-zh="物理学 · PHYSICS">Physics</div>
 
         <article class="row reveal">
@@ -261,10 +283,11 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <span class="idx">02</span>
           <h2 data-zh="在做的">Current work</h2>
         </div>
-        <p class="sec-lede" data-zh="手头在搭的四样东西。笔记与代码在陆续整理，没放链接的直接写信要。">Four things I am building right now. Notes and code are being organised — ask me for anything that is not linked yet.</p>
+        <p class="sec-lede" data-track="ai" data-zh="手头在搭的四样东西。笔记与代码在陆续整理，没放链接的直接写信要。">Four things I am building right now. Notes and code are being organised — ask me for anything that is not linked yet.</p>
+        <p class="sec-lede" data-track="physics" data-zh="物理侧手头在做的两件，都是先算账、再谈改进。">Two things in progress on the physics side — settle the accounting before touching the method.</p>
       </div>
 
-      <div class="rows">
+      <div class="rows" data-track="ai">
         <article class="pub reveal">
           <div class="year">LM 03</div>
           <div>
@@ -299,6 +322,26 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
             <p class="meta" data-zh="问答集 + 打分脚本；答案必须落到具体段落，否则判负。">Question set plus a scoring script: an answer has to land on a specific passage, or it counts as wrong.</p>
           </div>
           <a class="link" href="notes.html#rag" data-zh="笔记">NOTES</a>
+        </article>
+      </div>
+
+      <div class="rows" data-track="physics">
+        <article class="pub reveal">
+          <div class="year">PH 02</div>
+          <div>
+            <h3 data-zh="固定 N 截断下的重子光前波函数">Baryon light-front wave function at fixed N</h3>
+            <p class="meta" data-zh="先把三夸克扇区算干净，再看五夸克分量对结构函数的影响量级。">Clean up the three-quark sector first, then measure how far the five-quark component moves the structure function.</p>
+          </div>
+          <a class="link" href="notes.html#fock-basis" data-zh="笔记">NOTES</a>
+        </article>
+
+        <article class="pub reveal">
+          <div class="year">PH 03</div>
+          <div>
+            <h3 data-zh="DIS / SIDIS / DY 三过程约束对比">Cross-process constraints: DIS, SIDIS, DY</h3>
+            <p class="meta" data-zh="把三个过程对同一族函数的约束塞进一套参数化里比对，先找冲突。">Putting the constraints from all three processes into one parameterisation, to find where they disagree.</p>
+          </div>
+          <a class="link" href="notes.html#proton-structure" data-zh="笔记">NOTES</a>
         </article>
       </div>
     </div>
@@ -353,10 +396,11 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <span class="idx">04</span>
           <h2 data-zh="工具链">Toolkit</h2>
         </div>
-        <p class="sec-lede" data-zh="从模型到智能体，我实际在用的东西。">What I actually use, from the model down to the agent.</p>
+        <p class="sec-lede" data-track="ai" data-zh="从模型到智能体，我实际在用的东西。">What I actually use, from the model down to the agent.</p>
+        <p class="sec-lede" data-track="physics" data-zh="做光前与部分子分布计算时，手边常用的那一套。">What sits within reach when the calculation is light-front and partonic.</p>
       </div>
 
-      <div class="tools reveal">
+      <div class="tools reveal" data-track="ai">
         <div class="tool-col">
           <span class="k" data-zh="语言">LANGUAGES</span>
           <ul>
@@ -394,6 +438,45 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           </ul>
         </div>
       </div>
+
+      <div class="tools reveal" data-track="physics">
+        <div class="tool-col">
+          <span class="k" data-zh="语言">LANGUAGES</span>
+          <ul>
+            <li data-zh="Python（数值与拟合）">Python — numerics and fits</li>
+            <li data-zh="C++（计算代码）">C++ for compute</li>
+            <li data-zh="Bash 脚本">Bash scripting</li>
+            <li data-zh="Git 与版本管理">Git</li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <span class="k" data-zh="符号与数值">SYMBOLIC &amp; NUMERIC</span>
+          <ul>
+            <li data-zh="Mathematica 代数推导">Mathematica for algebra</li>
+            <li data-zh="数值积分与拟合">Numerical integration and fitting</li>
+            <li data-zh="ROOT 画图与处理">ROOT for plots and data</li>
+            <li data-zh="Convolution 与演化代码">Convolution and evolution codes</li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <span class="k" data-zh="理论工具">THEORY</span>
+          <ul>
+            <li data-zh="光前量子化">Light-front quantization</li>
+            <li data-zh="Fock 基展开">Fock-basis expansion</li>
+            <li data-zh="PDF / TMD 拟合">PDF and TMD fits</li>
+            <li data-zh="微扰论计算">Perturbative calculations</li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <span class="k" data-zh="工具与环境">TOOLING</span>
+          <ul>
+            <li data-zh="LaTeX 与 TikZ">LaTeX and TikZ</li>
+            <li data-zh="可复现笔记">Reproducible notes</li>
+            <li data-zh="Linux 与 HPC">Linux and HPC</li>
+            <li data-zh="文献与数据管理">Papers and data management</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -405,7 +488,8 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
       <div>
         <div class="f-k" data-zh="联系我">GET IN TOUCH</div>
         <h2 class="f-h" data-zh="聊聊吧。">Let&rsquo;s talk.</h2>
-        <p class="f-sub" data-zh="同一个问题的两半：模型本身，以及不得不靠它干活的智能体。邮件最快，中英文皆可；想看看还没发布的实验记录也可以直接问。">Two halves of one problem: the model itself, and the agent that has to use it. Email is the fastest way in, in either language — and if you want to see experiments that are not published yet, just ask.</p>
+        <p class="f-sub" data-track="ai" data-zh="同一个问题的两半：模型本身，以及不得不靠它干活的智能体。邮件最快，中英文皆可；想看看还没发布的实验记录也可以直接问。">Two halves of one problem: the model itself, and the agent that has to use it. Email is the fastest way in, in either language — and if you want to see experiments that are not published yet, just ask.</p>
+        <p class="f-sub" data-track="physics" data-zh="光前量子化与质子结构：截断在哪儿可信、三个过程在哪儿冲突。邮件最快，中英文皆可。">Light-front quantization and the structure of the proton: where the truncation holds, and where the three processes disagree. Email is the fastest way in, in either language.</p>
         <div class="f-mails">
           <a class="f-mail" href="mailto:physicsliu299792458@outlook.com">physicsliu299792458@outlook.com</a>
           <a class="f-mail f-mail-sub" href="mailto:202422201069@mail.sdu.edu.cn">202422201069@mail.sdu.edu.cn</a>

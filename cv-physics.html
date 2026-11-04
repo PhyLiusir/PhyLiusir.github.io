@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chenxu Liu — Curriculum Vitae (physics)</title>
+<link rel="stylesheet" href="assets/fonts.css" />
+<style>
+  @page{ size:A4; margin:0; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#fff;color:#1A1714;
+    font-family:"Geist","Noto Sans SC",-apple-system,"Segoe UI",sans-serif;
+    font-size:9.2pt;line-height:1.46;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .sheet{width:210mm;min-height:297mm;padding:12mm 17mm 11mm;margin:0 auto;background:#fff}
+  @media screen{
+    body{background:#EDEAE3;padding:24px 0}
+    .sheet{box-shadow:0 2px 24px rgba(0,0,0,.14)}
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,p{margin:0}
+
+  .name{
+    font-family:"Newsreader",Georgia,serif;font-weight:300;
+    font-size:26pt;line-height:1.05;letter-spacing:-.015em;
+  }
+  .name span{font-size:13pt;color:#8C8478;margin-left:6pt;letter-spacing:0}
+  .role{margin-top:5pt;font-size:9.4pt;color:#4A443B}
+  .contact{
+    margin-top:7pt;font-family:"Geist Mono",ui-monospace,monospace;
+    font-size:7.8pt;letter-spacing:.02em;color:#6B6459;
+  }
+  .contact b{font-weight:400;color:#A0472F}
+  .rule{margin-top:9pt;border-top:1px solid #C9C1B2}
+
+  section{margin-top:10.5pt}
+  .sec-head{
+    display:flex;align-items:baseline;gap:8pt;
+    border-bottom:1px solid #DDD6C8;padding-bottom:2.6pt;margin-bottom:6pt;
+  }
+  .sec-head h2{
+    font-family:"Geist Mono",ui-monospace,monospace;
+    font-size:7.6pt;font-weight:500;letter-spacing:.14em;color:#1A1714;
+    text-transform:uppercase;
+  }
+  .sec-head em{
+    font-style:normal;font-family:"Geist Mono",monospace;
+    font-size:7.2pt;color:#A8A093;letter-spacing:.06em;margin-left:auto;
+  }
+
+  .item + .item{margin-top:6pt}
+  .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:12pt}
+  .item-top h3{font-size:9.8pt;font-weight:500;line-height:1.35}
+  .item-top .date{
+    font-family:"Geist Mono",monospace;font-size:7.6pt;color:#8C8478;
+    white-space:nowrap;letter-spacing:.02em;
+  }
+  .sub{font-size:8.9pt;color:#5A534A;margin-top:1pt}
+  .body{font-size:8.9pt;color:#4A443B;margin-top:3pt}
+  ul{margin:3pt 0 0;padding-left:11pt}
+  li{font-size:8.9pt;color:#4A443B;margin-top:1.5pt}
+  li::marker{color:#B9AF9E}
+
+  .pub{margin-top:5pt;padding-left:11pt;position:relative}
+  .pub:first-of-type{margin-top:2pt}
+  .pub::before{content:"";position:absolute;left:0;top:4.2pt;width:4pt;height:1px;background:#A0472F}
+  .pub b{font-weight:500}
+  .pub .venue{color:#6B6459}
+
+  .skills{display:grid;grid-template-columns:26mm 1fr;row-gap:2.5pt;column-gap:6pt}
+  .skills dt{
+    font-family:"Geist Mono",monospace;font-size:7.4pt;letter-spacing:.08em;
+    color:#8C8478;padding-top:1.2pt;
+  }
+  .skills dd{margin:0;font-size:8.9pt;color:#332E27}
+  dl{margin:0}
+  .foot{
+    margin-top:14pt;border-top:1px solid #DDD6C8;padding-top:5pt;
+    font-family:"Geist Mono",monospace;font-size:7.2pt;color:#A8A093;letter-spacing:.04em;
+    display:flex;justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <h1 class="name">Chenxu Liu <span>刘宸旭</span></h1>
+  <p class="role">B.Sc. in Physics — Shandong University, Qingdao</p>
+  <p class="contact">
+    <b>202422201069@mail.sdu.edu.cn</b> &nbsp;·&nbsp; physicsliu299792458@outlook.com &nbsp;·&nbsp; github.com/PhyLiusir<br />
+    Qingdao, China
+  </p>
+  <div class="rule"></div>
+
+  <section>
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="item">
+      <div class="item-top">
+        <h3>Shandong University, Qingdao</h3>
+        <span class="date">2024 — 2028</span>
+      </div>
+      <p class="sub">Institute of Frontier and Interdisciplinary Science · class of 2024, expected 2028</p>
+      <p class="body">Coursework: theoretical mechanics, electrodynamics, thermodynamics and statistical physics, quantum mechanics, advanced quantum mechanics, quantum field theory, particle physics, general relativity.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Research interests</h2></div>
+    <p class="body"><b>Light-front physics:</b> light-front quantization, the light-cone Fock-basis expansion of baryons.<br />
+    <b>Proton structure:</b> collinear PDFs, transverse-momentum distributions and 3D parton distributions, constrained jointly by DIS, SIDIS and Drell&ndash;Yan.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Research directions &amp; work in progress</h2></div>
+    <p class="pub"><b>Light-front quantization (PH 01).</b> Kinematics turn multiplicative and the vacuum gets simple, which pushes all the difficulty into the Fock-space truncation. I work on where that truncation can be trusted.</p>
+    <p class="pub"><b>Baryon light-cone Fock expansion (PH 02).</b> Wave functions expanded in the light-cone Fock basis, three-quark sector first; convergence, and which observables survive a cut at fixed N.</p>
+    <p class="pub"><b>Proton structure — DIS / SIDIS / DY (PH 03).</b> Three processes read together: DIS for the collinear PDF, SIDIS for transverse momentum, DY as the cross-check. The 3D distribution only holds once the three agree.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Open questions</h2></div>
+    <p class="pub">Does convergence come from restricting transverse momentum or from the number of Fock components?</p>
+    <p class="pub">How much do DIS, SIDIS and DY actually disagree on the same ⟨k<sub>T</sub>²⟩?</p>
+    <p class="pub">In which Q² range does a Gaussian width model stop being defensible?</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Technical skills</h2></div>
+    <dl class="skills">
+      <dt>LANGUAGES</dt><dd>Python, C++, Bash, Git</dd>
+      <dt>SYMBOLIC</dt><dd>Mathematica for algebra; numerical integration and fitting</dd>
+      <dt>THEORY</dt><dd>Light-front quantization, Fock-basis expansion, PDF and TMD fits, perturbative calculations</dd>
+      <dt>TOOLING</dt><dd>LaTeX and TikZ, reproducible notes, Linux and HPC</dd>
+    </dl>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Languages</h2></div>
+    <p class="body">Chinese (native) · English (working proficiency).</p>
+  </section>
+
+  <div class="foot">
+    <span>Chenxu Liu — CV (physics)</span>
+    <span>Updated October 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
