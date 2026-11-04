@@ -1,0 +1,13 @@
+{
+  "name": "phyliusir.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build tooling for the physics notes page: number generation and KaTeX rendering",
+  "scripts": {
+    "build": "node tools/physics/render_section.mjs",
+    "check": "node tools/physics/render_section.mjs --check"
+  },
+  "devDependencies": {
+    "katex": "0.19.1"
+  }
+}
