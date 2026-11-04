@@ -7,11 +7,16 @@
  * 页面运行时不加载任何 JS，所以公式必须在构建期变成 HTML。源文件里写的是
  * LaTeX（可读、可改、可 diff），而不是几百个 <span>；渲染失败必须让构建失败。
  *
+ * 为什么双语不用 data-zh
+ * ----------------------
+ * 全站的语言切换靠给元素挂 data-zh、再由 site.js 换 innerHTML。那一招会把已经
+ * 渲染好的 KaTeX 结构整个丢掉——中文版就只剩文字、没有公式。所以这里给每个
+ * 块生成英、中各一份，用 CSS 按 <html data-lang> 切换，两边的公式都是真的。
+ *
  * 源文件格式
  * ----------
- *   <!-- block:<id> -->
- *   ...HTML，其中 $...$ 是行内公式，$$...$$ 是独立公式...
- *   <!-- /block:<id> -->
+ *   <!-- block:<id>:en -->  ...英文...  <!-- /block:<id>:en -->
+ *   <!-- block:<id>:zh -->  ...中文...  <!-- /block:<id>:zh -->
  *
  * 目标页面里对应
  *   <!-- mb:<id> -->   ...生成内容...   <!-- /mb:<id> -->
@@ -32,6 +37,7 @@ const SRC = path.join(ROOT, "tools/physics/notes-body.html");
 const PAGE = path.join(ROOT, "notes.html");
 
 const KATEX = { throwOnError: true, strict: false, trust: false, output: "html" };
+const LANGS = ["en", "zh"];
 
 function renderMath(html) {
   // 先处理独立公式，再处理行内，避免 $$ 被行内规则先吃掉。
@@ -45,18 +51,39 @@ function renderMath(html) {
 }
 
 function parseSource(text) {
-  const blocks = new Map();
-  const re = /<!-- block:([a-z0-9-]+) -->([\s\S]*?)<!-- \/block:\1 -->/g;
+  const blocks = new Map(); // id -> { en, zh }
+  const re = /<!-- block:([a-z0-9-]+):([a-z]{2}) -->([\s\S]*?)<!-- \/block:\1:\2 -->/g;
   let m;
   while ((m = re.exec(text)) !== null) {
-    blocks.set(m[1], m[2].trim());
+    const [, id, lang, body] = m;
+    if (!LANGS.includes(lang)) throw new Error(`unknown language "${lang}" in block ${id}`);
+    if (!blocks.has(id)) blocks.set(id, {});
+    const entry = blocks.get(id);
+    if (entry[lang] !== undefined) throw new Error(`duplicate ${lang} block for ${id}`);
+    entry[lang] = body.trim();
   }
   if (blocks.size === 0) throw new Error("no blocks found in notes-body.html");
+
+  // 缺任何一种语言都直接失败：双语不是可选项。
+  for (const [id, entry] of blocks) {
+    for (const lang of LANGS) {
+      if (entry[lang] === undefined) {
+        throw new Error(`block ${id} is missing its "${lang}" version`);
+      }
+    }
+  }
   return blocks;
 }
 
 const LF = String.fromCharCode(10);
 const CRLF = String.fromCharCode(13, 10);
+
+function indent(text, pad) {
+  return text
+    .split(LF)
+    .map((line) => (line.length ? pad + line : line))
+    .join(LF);
+}
 
 function main() {
   const src = fs.readFileSync(SRC, "utf8");
@@ -66,7 +93,7 @@ function main() {
   const blocks = parseSource(src);
   let out = page;
 
-  for (const [id, body] of blocks) {
+  for (const [id, entry] of blocks) {
     const open = `<!-- mb:${id} -->`;
     const close = `<!-- /mb:${id} -->`;
     const start = out.indexOf(open);
@@ -74,7 +101,11 @@ function main() {
     if (start < 0 || end < 0 || end < start) {
       throw new Error(`markers missing or misordered for mb:${id}`);
     }
-    const html = renderMath(body).split(LF).join(EOL);
+    const parts = LANGS.map((lang) => {
+      const inner = indent(renderMath(entry[lang]), "  ");
+      return `<div class="mbw" data-mb-lang="${lang}">` + EOL + inner + EOL + `</div>`;
+    });
+    const html = parts.join(EOL).split(LF).join(EOL);
     out = out.slice(0, start + open.length) + EOL + "      " + html + EOL + "      " + out.slice(end);
   }
 
@@ -88,12 +119,12 @@ function main() {
       console.error("notes.html is stale (math blocks) — rerun: node tools/physics/render_math.mjs");
       process.exit(1);
     }
-    console.log(`phys-math: OK (${blocks.size} blocks)`);
+    console.log(`phys-math: OK (${blocks.size} blocks, en+zh)`);
     return;
   }
 
   fs.writeFileSync(PAGE, out, "utf8");
-  console.log(`rendered ${blocks.size} math blocks into notes.html`);
+  console.log(`rendered ${blocks.size} math blocks (en + zh) into notes.html`);
 }
 
 main();

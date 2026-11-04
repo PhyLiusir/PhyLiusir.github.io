@@ -49,25 +49,28 @@ function fmt(v) {
 /** 每个条目的符号标签与单位（展示用，与 JSON 中的数值一一对应）。 */
 const DISPLAY = {
   "lf-energy": {
-    rows: [{ key: "k^{+}k^{-}", value: "1.75", unit: "GeV²" }],
+    rows: [{ key: "k^{+}k^{-}", value: "1.75", unit: "GeV²", unitZh: "GeV²" }],
     note: "on-shell point: k⁰ = 2, k³ = 3/2, m = 1/2, k⊥ = √(3/2), all in GeV",
+    noteZh: "在壳点：k⁰ = 2，k³ = 3/2，m = 1/2，k⊥ = √(3/2)，单位 GeV",
   },
   "fock-normalisation": {
     rows: [
-      { key: "\\int x_{1}x_{2}x_{3}\\,\\mathrm{d}\\Sigma", value: "1/120", unit: "dimensionless" },
-      { key: "\\mathcal{N}=\\sqrt{120}", value: "10.95445", unit: "dimensionless" },
+      { key: "\\int x_{1}x_{2}x_{3}\\,\\mathrm{d}\\Sigma", value: "1/120", unit: "dimensionless", unitZh: "无量纲" },
+      { key: "\\mathcal{N}=\\sqrt{120}", value: "10.95445", unit: "dimensionless", unitZh: "无量纲" },
     ],
     note: "model wave function Ψ ∝ x₁x₂x₃; normalisation fixed by P₃q = 1",
+    noteZh: "模型波函数 Ψ ∝ x₁x₂x₃；归一化由 P₃q = 1 定出",
   },
   "dis-kinematics": {
     rows: [
-      { key: "Q^{2}", value: null, unit: "GeV²" },
-      { key: "x_{B}", value: null, unit: "" },
-      { key: "y", value: null, unit: "" },
-      { key: "s", value: null, unit: "GeV²" },
-      { key: "W", value: null, unit: "GeV" },
+      { key: "Q^{2}", value: null, unit: "GeV²", unitZh: "GeV²" },
+      { key: "x_{B}", value: null, unit: "", unitZh: "" },
+      { key: "y", value: null, unit: "", unitZh: "" },
+      { key: "s", value: null, unit: "GeV²", unitZh: "GeV²" },
+      { key: "W", value: null, unit: "GeV", unitZh: "GeV" },
     ],
     note: "HERA beams: E_e = 27.6 GeV, E_p = 920 GeV, E′_e = 10 GeV, θ = 150°",
+    noteZh: "HERA 束流：E_e = 27.6 GeV，E_p = 920 GeV，E′_e = 10 GeV，θ = 150°",
   },
 };
 
@@ -93,7 +96,7 @@ function renderClaim(claim, provenance) {
         `        <div class="eq-row">`,
         `          <span class="eq-k">${tex(row.key)}</span>`,
         `          <span class="eq-v">${value}</span>`,
-        `          <span class="eq-u">${row.unit}</span>`,
+        `          <span class="eq-u" data-zh="${escapeAttr(row.unitZh ?? row.unit)}">${row.unit}</span>`,
         `        </div>`,
       ].join("\n");
     })
@@ -102,7 +105,7 @@ function renderClaim(claim, provenance) {
   const checks = claim.checks
     .map(
       (c) =>
-        `        <li class="${c.status}">${escapeHtml(c.en || c.detail)}</li>`,
+        `        <li class="${c.status}" data-zh="${escapeAttr(c.detail)}">${escapeHtml(c.en || c.detail)}</li>`,
     )
     .join("\n");
 
@@ -110,18 +113,26 @@ function renderClaim(claim, provenance) {
 
   return [
     `<figure class="eq" id="eq-${claim.id}" data-checks="${claim.checks.length}" data-failed="${failed}">`,
-    `  <span class="eq-tag">${claim.label} · SYMBOLIC + NUMERIC</span>`,
+    `  <span class="eq-tag" data-zh="${claim.label} · 符号与数值">${claim.label} · SYMBOLIC + NUMERIC</span>`,
     `      <div class="eq-formula">${texBlock(claim.formula.latex)}</div>`,
     `      <div class="eq-rows">`,
     rows,
     `      </div>`,
-    `      <p class="eq-note">${escapeHtml(disp.note)}</p>`,
+    `      <p class="eq-note" data-zh="${escapeAttr(disp.noteZh ?? disp.note)}">${escapeHtml(disp.note)}</p>`,
     `      <ul class="eq-checks">`,
     checks,
     `      </ul>`,
     `      <p class="eq-src">${escapeHtml(prov)}</p>`,
     `    </figure>`,
   ].join("\n");
+}
+
+function escapeAttr(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function escapeHtml(s) {

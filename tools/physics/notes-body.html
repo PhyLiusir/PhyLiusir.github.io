@@ -1,4 +1,4 @@
-<!-- block:lf-wavefunction -->
+<!-- block:lf-wavefunction:en -->
 
 <h3 class="mb-h">The wave function</h3>
 
@@ -32,9 +32,45 @@
 
 <p class="mb-p">It is a model of a two-body system, not of the proton, and it is quoted here only because it shows the shape a derived wave function takes: the $x(1-x)$ in the exponent is the two-body energy denominator, not a fitting parameter.</p>
 
-<!-- /block:lf-wavefunction -->
+<!-- /block:lf-wavefunction:en -->
 
-<!-- block:fock-proton -->
+<!-- block:lf-wavefunction:zh -->
+
+<h3 class="mb-h">波函数</h3>
+
+<p class="mb-p">强子是光前哈密顿量的本征态。把本征值写成不变质量的形式，运动学那一半就变成乘法，动力学全部收进一个算符：</p>
+
+<div class="mb-eq">$$H_{LC}=P^{+}P^{-}-\mathbf P_{\perp}^{2},\qquad H_{LC}\,|\psi\rangle=M^{2}\,|\psi\rangle .$$</div>
+
+<p class="mb-p">把这个本征矢按 Fock 态展开，光前波函数才有意义：$\psi_{n}$ 是找到 $n$ 个部分子、动量分数为 $x_{i}$、横动量为 $\mathbf k_{\perp i}$ 的概率幅，</p>
+
+<div class="mb-eq">$$|P\rangle=\sum_{n}\int\Big[\prod_{i=1}^{n}\frac{\mathrm d x_{i}\,\mathrm d^{2}k_{\perp i}}{16\pi^{3}}\Big]\ \psi_{n}(x_{i},\mathbf k_{\perp i},\lambda_{i})\ \big|n;\,x_{i}P^{+},\ x_{i}\mathbf P_{\perp}+\mathbf k_{\perp i},\ \lambda_{i}\big\rangle ,$$</div>
+
+<p class="mb-p">同时受两条约束——纵向与横向动量守恒——以及归一化：</p>
+
+<div class="mb-eq">$$\sum_{i=1}^{n}x_{i}=1,\qquad \sum_{i=1}^{n}\mathbf k_{\perp i}=\mathbf 0_{\perp},\qquad \sum_{n}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\,|\psi_{n}|^{2}=1 .$$</div>
+
+<p class="mb-p">波函数不是拟设。把本征值条件改写成预解式，它就唯一确定了——这就是光前时序微扰论，每个中间态被自由部分的光前能量分母加权：</p>
+
+<div class="mb-eq">$$|\psi\rangle=|\psi_{0}\rangle+\frac{1}{M^{2}-H_{0}}\,V\,|\psi\rangle ,\qquad H_{0}=\sum_{i}\frac{\mathbf k_{\perp i}^{2}+m_{i}^{2}}{x_{i}} .$$</div>
+
+<p class="mb-p">有两点值得记住。其一，因为 $x_{i}$ 在分母上，$x$ 很小的部分子几乎不耗能量，对 $n$ 的求和没有显而易见的收敛性——下一节的截断问题正来源于此。其二，$x_{i}$ 与 $\mathbf k_{\perp i}$ 在运动学变换下不变，所以波函数本身与参考系无关，随参考系改变的只是概率解释。</p>
+
+<p class="mb-p">离散光锥量子化把它变成一个矩阵问题。把理论放进沿 $x^{-}$ 的盒子：</p>
+
+<div class="mb-eq">$$P^{+}=\frac{2\pi K}{L},\qquad x_{i}=\frac{n_{i}}{K},\qquad n_{i}=1,\dots,K ,$$</div>
+
+<p class="mb-p">然后对角化 $H_{LC}$。本征值是质量谱，本征矢是波函数——一个矩阵，两个答案。</p>
+
+<p class="mb-p">作为尺度参照，有一类波形是推导出来的、不是拟合的：光前全息波形，它唯一的标度 $\kappa$ 来自束缚态方程：</p>
+
+<div class="mb-eq">$$\psi(x,\mathbf k_{\perp})\ \propto\ \sqrt{x(1-x)}\ \exp\!\Big[-\frac{\mathbf k_{\perp}^{2}}{2\kappa^{2}x(1-x)}\Big] .$$</div>
+
+<p class="mb-p">它是二体系统的模型，不是质子的；放在这里只是因为它是「推导出来的波函数」该有的形状：指数里的 $x(1-x)$ 是二体能量分母，不是拟合参数。</p>
+
+<!-- /block:lf-wavefunction:zh -->
+
+<!-- block:fock-proton:en -->
 
 <h3 class="mb-h">From the expansion to a truncated proton</h3>
 
@@ -92,9 +128,69 @@
 
 <p class="mb-p">The operational statement is the checkable one: quote $N$, quote $\delta_{N}$, and show that the observable moves less than $\delta_{N}$ when $N$ is raised by one.</p>
 
-<!-- /block:fock-proton -->
+<!-- /block:fock-proton:en -->
 
-<!-- block:sidis -->
+<!-- block:fock-proton:zh -->
+
+<h3 class="mb-h">从展开到被截断的质子</h3>
+
+<p class="mb-p">对重子来说，求和从三个组分起，而允许的扇区由两个截断必须尊重的量子数决定——色单态，以及重子数：</p>
+
+<div class="mb-eq">$$|p\rangle=\sum_{n=3}^{N}\sum_{\{c\}}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\ \psi_{n/p}\big(x_{i},\mathbf k_{\perp i},\lambda_{i};c_{i}\big)\ |n;c\rangle ,\qquad n_{q}-n_{\bar q}=3 .$$</div>
+
+<p class="mb-p">把它看成作用在光前真空上的算符：截断到 $N$ 的质子是一串产生算符的乘积，每一项收缩一个色单态张量：</p>
+
+<div class="mb-eq">$$|p\rangle_{N}=\hat{\mathcal O}^{\dagger}_{p,N}\,|0\rangle_{\rm LF},\qquad \hat{\mathcal O}^{\dagger}_{p,N}=\sum_{n=3}^{N}\int\big[\mathrm d x\,\mathrm d^{2}k_{\perp}\big]\ \psi_{n/p}\ \Phi^{(n)}_{c_{1}\dots c_{n}}\ \prod_{i=1}^{n}\hat a^{\dagger}_{i}.$$</div>
+
+<p class="mb-p">其中 $\Phi^{(3)}_{abc}=\varepsilon_{abc}/\sqrt{6}$ 是熟悉的三夸克单态；$n>3$ 时 $\Phi^{(n)}$ 是 $n$ 个色指标上的相应单态张量，乘积对夸克与反夸克一视同仁。前三个扇区：</p>
+
+<ul class="mb-list">
+  <li>$n=3$ — $|uud\rangle$：价夸克扇区。只有它贡献领头扭度的价夸克求和规则，也只有它能让一个双参数模型假装自己是计算。</li>
+  <li>$n=4$ — $|uud\,g\rangle$：胶子分布与动量求和规则都要它。这里胶子不是小修正；在无限动量系里它带走质子约一半的动量。</li>
+  <li>$n=5$ — $|uud\,q\bar q\rangle$ 与 $|uud\,gg\rangle$：海。质子的反夸克分布与 $d/u$ 不对称住在这里，也是光锥图像开始变得不直观的扇区。</li>
+</ul>
+
+<h3 class="mb-h">截断的代价</h3>
+
+<p class="mb-p">把求和砍在 $N$ 不是事后可以忘掉的近似。有三样东西会坏，而且每一样都得明码标价。</p>
+
+<p class="mb-p"><strong>概率从保留下来的空间里漏出去。</strong>被丢掉的扇区携带真实概率，留下来的自然不够：</p>
+
+<div class="mb-eq">$$\sum_{n=3}^{N}P_{n}=1-\delta_{N},\qquad \delta_{N}=\sum_{n>N}P_{n}\ \ge 0 .$$</div>
+
+<p class="mb-p">$\delta_{N}$ 应当与每一个截断结果一起报出来。它是唯一一个说明「这个计算从未看见多少东西」的数。</p>
+
+<p class="mb-p"><strong>动量求和规则不再闭合成一。</strong>动量守恒是关于所有扇区的一句话，</p>
+
+<div class="mb-eq">$$\sum_{q}\int_{0}^{1}\mathrm d x\ x\,f_{q}(x)+\int_{0}^{1}\mathrm d x\ x\,f_{g}(x)=1 ,$$</div>
+
+<p class="mb-p">所以截断基给出严格小于一。$N=3$ 时胶子与海夸克的动量整个缺席；这个亏损不是计算错了，而是计算按规格在工作。</p>
+
+<p class="mb-p"><strong>本征矢不再是原哈密顿量的本征矢。</strong>删掉扇区等于把 $H$ 换成保留空间上的有效算符，要把物理补回来，实践上需要三件事：</p>
+
+<ul class="mb-list">
+  <li><em>逐扇区的抵消项</em>——每个扇区一个质量抵消项，定得使截断后的本征值复现物理质量；</li>
+  <li><em>诱导相互作用</em>——把被删扇区积分掉所产生的顶点，它们不在原拉氏量里，必须显式加上，或被证明足够小；</li>
+  <li><em>帧检验</em>——截断不是洛伦兹不变的，所以只有当结果在改变 $\mathbf P_{\perp}$ 或 DLCQ 分辨率 $K$ 时保持不变，才算数。</li>
+</ul>
+
+<p class="mb-p">零模值得单独一句。在 $A^{+}=0$ 规范下，Fock 展开没有凝聚——平凡真空正是整套构造的要点——但被约束的场分量仍携带零模信息；凡是能存活到光前的对称破缺，都存在那里，而不是存在 Fock 扇区里。</p>
+
+<h3 class="mb-h">扇区怎么选</h3>
+
+<p class="mb-p">没有一个普遍正确的 $N$。选择由所算的算符决定，值得写下的是规则而不是答案：</p>
+
+<ul class="mb-list">
+  <li><em>算符决定扇区。</em>胶子分布至少要 $|uud\,g\rangle$；反夸克分布至少要 $|uud\,q\bar q\rangle$；价夸克求和规则在 $N=3$ 就能活。</li>
+  <li><em>盯着 $P_{n}$ 的衰减。</em>如果 $P_{5}$ 与 $P_{3}$ 同量级，这不是近似，这是一个穿着近似外衣的猜测。</li>
+  <li><em>成本要付两次。</em>DLCQ 基按 $K$ 与 $n$ 组合爆炸，而每个额外扇区还需要自己的抵消项——第二次付费发生在第一次付完之后。</li>
+</ul>
+
+<p class="mb-p">可操作的说法是可检验的那句：报出 $N$，报出 $\delta_{N}$，并证明 $N$ 加一之后可观测量的移动小于 $\delta_{N}$。</p>
+
+<!-- /block:fock-proton:zh -->
+
+<!-- block:sidis:en -->
 
 <h3 class="mb-h">SIDIS at first order in the lepton probe</h3>
 
@@ -127,11 +223,8 @@
     <text x="48" y="166" font-style="italic">P</text>
     <text x="472" y="134" font-style="italic">h(P<tspan font-size="9" dy="3">h</tspan><tspan dy="-3">)</tspan></text>
     <text x="474" y="228" font-style="italic">X</text>
-    <text x="196" y="252">remnant</text>
   </g>
 </svg>
-<figcaption>One-photon exchange. Upper line: the lepton, radiating the spacelike photon. Lower line: the proton (double line on the left) resolved into a struck quark and a spectator remnant; the right-hand blob is fragmentation into the detected hadron <em>h</em> plus the unobserved remainder <em>X</em>.</figcaption>
-</figure>
 <figcaption>One-photon exchange. Upper line: the lepton, radiating the spacelike photon. Lower line: the proton (double line on the left) resolved into a struck quark and a spectator remnant; the right-hand blob is fragmentation into the detected hadron <em>h</em> plus the unobserved remainder <em>X</em>.</figcaption>
 </figure>
 
@@ -165,9 +258,79 @@
 
 <p class="mb-p">One warning about the prefactor. Papers differ in whether $y$, $1/(xyQ^{2})$ or $1/(2Q^{4})$ is pulled out in front, and the difference is not always absorbed in the structure-function definition. What cannot differ is the normalisation of $L_{\mu\nu}$ and $W^{\mu\nu}$ stated above — once those are fixed, the prefactor is checkable rather than conventional.</p>
 
-<!-- /block:sidis -->
+<!-- /block:sidis:en -->
 
-<!-- block:dy -->
+<!-- block:sidis:zh -->
+
+<h3 class="mb-h">轻子探针一阶下的 SIDIS</h3>
+
+<p class="mb-p">在电磁耦合的一阶，过程只是轻子与靶中一个夸克之间的单个虚光子交换。下面全部来自这一张图——没有 $Z$ 交换，没有辐射修正，没有双光子交换。</p>
+
+<figure class="fd">
+<svg viewBox="0 0 560 280" role="img" aria-label="半单举深度非弹性散射的单光子交换图">
+  <defs>
+    <marker id="s-arw-z" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" stroke="none"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M48,50 L250,96" marker-end="url(#s-arw-z)"/>
+    <path d="M250,96 L452,50" marker-end="url(#s-arw-z)"/>
+    <path d="M250,98 q7,5 0,10 t0,10 t0,10 t0,10 t0,10 t0,10 t0,10"/>
+    <path d="M109,178 L381,178" marker-end="url(#s-arw-z)"/>
+    <path d="M407,178 L520,142" marker-end="url(#s-arw-z)"/>
+    <path d="M407,178 L520,216" marker-end="url(#s-arw-z)"/>
+    <path d="M106,189 L186,243" stroke-dasharray="5 5" marker-end="url(#s-arw-z)"/>
+  </g>
+  <path d="M44,174 L82,174" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M44,182 L82,182" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="96" cy="178" r="13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <circle cx="394" cy="178" r="13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <g fill="currentColor" font-family="inherit" font-size="13">
+    <text x="54" y="40" font-style="italic">l(k)</text>
+    <text x="410" y="40" font-style="italic">l′(k′)</text>
+    <text x="266" y="142" font-style="italic">γ∗(q)</text>
+    <text x="48" y="166" font-style="italic">P</text>
+    <text x="472" y="134" font-style="italic">h(P<tspan font-size="9" dy="3">h</tspan><tspan dy="-3">)</tspan></text>
+    <text x="474" y="228" font-style="italic">X</text>
+  </g>
+</svg>
+<figcaption>单光子交换。上支是轻子，辐射出类空光子。下支是质子（左侧双线）分解成一个被击夸克与一个旁观剩余物；右侧的斑块是碎裂成被探测的强子 <em>h</em> 与未被观测的其余部分 <em>X</em>。</figcaption>
+</figure>
+
+<p class="mb-p">运动学，光子动量 $q=k-k'$，$M$ 为质子质量：</p>
+
+<div class="mb-eq">$$q=k-k',\qquad Q^{2}=-q^{2},\qquad x_{B}=\frac{Q^{2}}{2\,P\cdot q},\qquad y=\frac{P\cdot q}{P\cdot k},\qquad z=\frac{P\cdot P_{h}}{P\cdot q},\qquad \gamma=\frac{2M x_{B}}{Q}.$$</div>
+
+<p class="mb-p">振幅分解为轻子流与强子矩阵元，</p>
+
+<div class="mb-eq">$$\mathcal M=\frac{e^{2}}{Q^{2}}\ \bar u(k')\gamma_{\mu}u(k)\ \langle X;P_{h}|\,J^{\mu}(0)\,|P\rangle ,$$</div>
+
+<p class="mb-p">所以截面是两个张量的缩并。对无极化、无质量的轻子，轻子张量纯属运动学，</p>
+
+<div class="mb-eq">$$L_{\mu\nu}=2\big(k_{\mu}k'_{\nu}+k_{\nu}k'_{\mu}-g_{\mu\nu}\,k\!\cdot\!k'\big),$$</div>
+
+<p class="mb-p">而强相互作用的全部内容都在强子张量里——对未被观测的剩余部分求和，被探测的强子固定：</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\frac{1}{4\pi}\sum_{X}\int\mathrm d^{4}r\ e^{iq\cdot r}\ \langle P|\,J^{\mu\dagger}(r)\,|X;P_{h}\rangle\langle X;P_{h}|\,J^{\nu}(0)\,|P\rangle .$$</div>
+
+<p class="mb-p">微分截面就是这个缩并，对确定末态的六个变量求微分：</p>
+
+<div class="mb-eq">$$\frac{\mathrm d^{6}\sigma}{\mathrm d x\,\mathrm d y\,\mathrm d z\,\mathrm d\phi_{h}\,\mathrm d P_{h\perp}^{2}\,\mathrm d\psi}=\frac{\alpha^{2}y}{2Q^{4}}\ L_{\mu\nu}\,W^{\mu\nu},$$</div>
+
+<p class="mb-p">其中 $\phi_{h}$ 是强子绕光子方向的方位角，$\psi$ 是轻子平面的方位角。上面两个张量都是自旋平均的，耦合由振幅携带，所以两者里都不剩 $e^{2}$。</p>
+
+<p class="mb-p">所有可测量的东西都在 $W^{\mu\nu}$ 如何分解里。与 $L_{\mu\nu}$ 缩并、按过程允许的矢量展开，每个允许的方位角调制对应一个结构函数：</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\sum_{i}\mathcal W^{\mu\nu}_{i}\,F_{i},\qquad F_{i}\in\big\{F_{UU,T},\ F_{UU,L},\ F_{UU}^{\cos\phi_{h}},\ F_{UU}^{\cos 2\phi_{h}},\ F_{UT}^{\sin(\phi_{h}-\phi_{S})},\ F_{UT}^{\sin(\phi_{h}+\phi_{S})},\ \dots\big\},$$</div>
+
+<p class="mb-p">下标是束流与靶的极化。领头扭度下前两个是横向与纵向部分，而调制项才是三维物理所在：$F_{UT}^{\sin(\phi_{h}-\phi_{S})}$ 是 Sivers 不对称，未极化夸克与质子横向自旋的关联；$F_{UT}^{\sin(\phi_{h}+\phi_{S})}$ 是 Collins 不对称，同一关联的碎裂侧版本；$F_{UU}^{\cos 2\phi_{h}}$ 是 Boer–Mulders。</p>
+
+<p class="mb-p">关于前置因子的一句警告。文献的差别在于把 $y$、$1/(xyQ^{2})$ 还是 $1/(2Q^{4})$ 提到前面，而这个差别并不总能被结构函数的定义吸收。不能有差别的是上面写定的 $L_{\mu\nu}$ 与 $W^{\mu\nu}$ 的归一化——钉死它们之后，前置因子就是可核对的，而不是习惯的。</p>
+
+<!-- /block:sidis:zh -->
+
+<!-- block:dy:en -->
 
 <h3 class="mb-h">Drell–Yan: the same factorisation from the other side</h3>
 
@@ -197,8 +360,6 @@
 </svg>
 <figcaption>Drell–Yan at leading order: quark–antiquark annihilation through a timelike photon. Colour is summed at the quark vertex and the lepton pair is produced back-to-back in the pair rest frame.</figcaption>
 </figure>
-<figcaption>Drell–Yan at leading order: quark–antiquark annihilation through a timelike photon. Colour is summed at the quark vertex and the lepton pair is produced back-to-back in the pair rest frame.</figcaption>
-</figure>
 
 <p class="mb-p">With $P_{A}$, $P_{B}$ the two beam momenta and $q$ the pair momentum, the kinematics are fixed by two numbers:</p>
 
@@ -220,4 +381,57 @@
 
 <p class="mb-p">Two features are worth naming because they are what makes DY more than a cross-check. The factor $9$ is $3\times3$: one factor of three from the angular integral of the elementary cross section, one from averaging over the colours of the incoming quark and antiquark. And the same structure functions appear here as in SIDIS — but the gauge links run the other way round, so the Sivers function changes sign between the two processes. That sign is the reason the two have to be fitted together rather than compared afterwards.</p>
 
-<!-- /block:dy -->
+<!-- /block:dy:en -->
+
+<!-- block:dy:zh -->
+
+<h3 class="mb-h">Drell–Yan：同一套因子化的另一侧</h3>
+
+<p class="mb-p">一个强子中的夸克与另一个强子中的反夸克湮灭成虚光子，再衰变成轻子对。领头阶就是一张图：</p>
+
+<figure class="fd">
+<svg viewBox="0 0 520 260" role="img" aria-label="Drell–Yan 夸克—反夸克湮灭成轻子对">
+  <defs>
+    <marker id="d-arw-z" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" stroke="none"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M52,64 L250,130" marker-end="url(#d-arw-z)"/>
+    <path d="M52,196 L250,130" marker-end="url(#d-arw-z)"/>
+    <path d="M250,130 q5,-7 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0"/>
+    <path d="M370,130 L470,80" marker-end="url(#d-arw-z)"/>
+    <path d="M370,130 L470,184" marker-end="url(#d-arw-z)"/>
+  </g>
+  <g fill="currentColor" font-family="inherit" font-size="13">
+    <text x="58" y="50" font-style="italic">q(x<tspan font-size="9" dy="3">A</tspan><tspan dy="-3">)</tspan></text>
+    <text x="58" y="216" font-style="italic">q̄(x<tspan font-size="9" dy="3">B</tspan><tspan dy="-3">)</tspan></text>
+    <text x="292" y="116" font-style="italic">γ∗(Q)</text>
+    <text x="452" y="70" font-style="italic">l⁻</text>
+    <text x="452" y="204" font-style="italic">l⁺</text>
+  </g>
+</svg>
+<figcaption>领头阶的 Drell–Yan：夸克—反夸克经类时光子湮灭。色在夸克顶点被求和，轻子对在质心系中背对背产生。</figcaption>
+</figure>
+
+<p class="mb-p">以 $P_{A}$、$P_{B}$ 为两束流四动量、$q$ 为轻子对动量，运动学由两个数钉住：</p>
+
+<div class="mb-eq">$$Q^{2}=q^{2},\qquad \tau=\frac{Q^{2}}{s},\qquad x_{A}=\sqrt{\tau}\,e^{\,y},\qquad x_{B}=\sqrt{\tau}\,e^{-y},$$</div>
+
+<p class="mb-p">其中 $y$ 是轻子对的快度，$\sqrt{s}$ 是质心能量。强子张量与 SIDIS 形状相同，但有两个入射强子、没有末态被探测的强子：</p>
+
+<div class="mb-eq">$$W^{\mu\nu}=\frac{1}{4\pi}\int\mathrm d^{4}r\ e^{iq\cdot r}\ \langle P_{A}P_{B}|\,J^{\mu\dagger}(r)\,J^{\nu}(0)\,|P_{A}P_{B}\rangle .$$</div>
+
+<p class="mb-p">部分子模型中领头阶的微分截面是</p>
+
+<div class="mb-eq">$$\frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y}=\frac{4\pi\alpha^{2}}{9\,Q^{2}s}\sum_{q}e_{q}^{2}\Big[\,q(x_{A})\,\bar q(x_{B})+\bar q(x_{A})\,q(x_{B})\,\Big],$$</div>
+
+<p class="mb-p">而轻子对并非各向同性：它的角分布携带中间光子的自旋一性质，</p>
+
+<div class="mb-eq">$$\frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y\,\mathrm d\Omega}=\frac{3}{16\pi}\ \frac{\mathrm d\sigma}{\mathrm d Q^{2}\,\mathrm d y}\ \big(1+\cos^{2}\theta\big),$$</div>
+
+<p class="mb-p">其中 $\theta$ 是负轻子在轻子对静止系中的极角。归一化由 $\int\mathrm d\Omega\,(1+\cos^{2}\theta)=16\pi/3$ 定死，这就是那两个常数总一起出现的原因。</p>
+
+<p class="mb-p">有两点值得点名，因为它们让 DY 不止是一个交叉检验。因子 $9$ 是 $3\times3$：一个三来自基元截面的角积分，一个来自对入射夸克与反夸克颜色的平均。同样的结构函数在这里出现，但规范链方向相反，所以 Sivers 函数在两个过程之间变号。这个符号正是两者必须联合拟合、不能事后比较的原因。</p>
+
+<!-- /block:dy:zh -->

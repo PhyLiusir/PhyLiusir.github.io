@@ -28,6 +28,12 @@ tools/physics/notes-body.html     →  tools/physics/render_math.mjs → notes.h
 renders it into `notes.html` between `<!-- mb:... -->` markers, so the LaTeX stays
 readable and diffable in the source and the page still ships without any client JS.
 
+Every block carries **both languages** (`<!-- block:id:en -->` and `<!-- block:id:zh -->`),
+and the renderer refuses to build if one is missing. The site's usual `data-zh`
+mechanism cannot be used here: it swaps `innerHTML` and would throw away the rendered
+KaTeX, leaving a Chinese page with no formulas. Instead both versions are built and
+CSS shows one according to `<html data-lang>`.
+
 `notes.html` only reads the generated HTML between `<!-- phys:<id> -->` markers.
 Do not edit those blocks by hand — the next render overwrites them.
 
