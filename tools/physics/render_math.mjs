@@ -50,6 +50,13 @@ function renderMath(html) {
   return out;
 }
 
+const LF = String.fromCharCode(10);
+const CRLF = String.fromCharCode(13, 10);
+
+/** 统一成 LF：带着 CR 再去转 EOL 会得到 
+。 */
+const normalizeLf = (text) => text.split(CRLF).join(LF);
+
 function parseSource(text) {
   const blocks = new Map(); // id -> { en, zh }
   const re = /<!-- block:([a-z0-9-]+):([a-z]{2}) -->([\s\S]*?)<!-- \/block:\1:\2 -->/g;
@@ -60,7 +67,7 @@ function parseSource(text) {
     if (!blocks.has(id)) blocks.set(id, {});
     const entry = blocks.get(id);
     if (entry[lang] !== undefined) throw new Error(`duplicate ${lang} block for ${id}`);
-    entry[lang] = body.trim();
+    entry[lang] = normalizeLf(body.trim());
   }
   if (blocks.size === 0) throw new Error("no blocks found in notes-body.html");
 
@@ -74,9 +81,6 @@ function parseSource(text) {
   }
   return blocks;
 }
-
-const LF = String.fromCharCode(10);
-const CRLF = String.fromCharCode(13, 10);
 
 function indent(text, pad) {
   return text
@@ -103,9 +107,9 @@ function main() {
     }
     const parts = LANGS.map((lang) => {
       const inner = indent(renderMath(entry[lang]), "  ");
-      return `<div class="mbw" data-mb-lang="${lang}">` + EOL + inner + EOL + `</div>`;
+      return `<div class="mbw" data-mb-lang="${lang}">` + LF + inner + LF + `</div>`;
     });
-    const html = parts.join(EOL).split(LF).join(EOL);
+    const html = parts.join(LF).split(LF).join(EOL);
     out = out.slice(0, start + open.length) + EOL + "      " + html + EOL + "      " + out.slice(end);
   }
 
