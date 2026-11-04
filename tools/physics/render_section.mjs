@@ -149,14 +149,19 @@ function render(data, page) {
   const CRLF = String.fromCharCode(13, 10);
   const EOL = page.includes(CRLF) ? CRLF : LF;
   let out = page;
+  let injected = 0;
   for (const claim of data.claims) {
     const open = `<!-- phys:${claim.id} -->`;
     const close = `<!-- /phys:${claim.id} -->`;
     const start = out.indexOf(open);
     const end = out.indexOf(close);
+    // 页面上已经不放这类块时，安静跳过；数据与自检仍然保留，
+    // 哪天要把块放回去，插回标记即可。
+    if (start < 0 && end < 0) continue;
     if (start < 0 || end < 0 || end < start) {
-      throw new Error(`markers missing or misordered for ${claim.id}`);
+      throw new Error(`markers misordered for ${claim.id}`);
     }
+    injected += 1;
     const block = renderClaim(claim, {
       generator: data.provenance.generator,
       sympy: data.provenance.sympy,
@@ -167,7 +172,7 @@ function render(data, page) {
       EOL + "      " + block + EOL + "      " +
       out.slice(end);
   }
-  return out;
+  return { out, injected };
 }
 
 const check = process.argv.includes("--check");
@@ -179,7 +184,7 @@ if (data.summary.failed > 0) {
   process.exit(1);
 }
 
-const rendered = render(data, page);
+const { out: rendered, injected } = render(data, page);
 
 if (rendered.includes("katex-error")) {
   console.error("katex produced an error node — aborting");
@@ -191,13 +196,16 @@ if (check) {
     console.error("notes.html is stale — rerun: node tools/physics/render_section.mjs");
     process.exit(1);
   }
-  console.log(`phys-render: OK (${data.claims.length} blocks, hash ${data.content_hash})`);
+  console.log(`phys-render: OK (${injected} block(s) on the page, hash ${data.content_hash})`);
   process.exit(0);
 }
 
 fs.writeFileSync(PAGE, rendered, "utf8");
 const failed = data.claims.reduce((n, c) => n + c.checks.filter((k) => k.status !== "pass").length, 0);
 console.log(
-  `rendered ${data.claims.length} blocks into notes.html · checks ${failed === 0 ? "all pass" : failed + " FAILED"} · ` +
+  (injected === 0
+    ? "phys-render: no symbolic/numeric blocks on the page (data still checked)"
+    : `rendered ${injected} blocks into notes.html`) +
+    ` · checks ${failed === 0 ? "all pass" : failed + " FAILED"} · ` +
     `sympy ${data.provenance.sympy} · hash ${data.content_hash}`,
 );
