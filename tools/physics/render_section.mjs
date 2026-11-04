@@ -132,6 +132,11 @@ function escapeHtml(s) {
 }
 
 function render(data, page) {
+  // 跟随文件自身的换行风格：编辑器或脚本可能把整份文件规范化成 CRLF，
+  // 硬编码 LF 会让 --check 把「换行符不同」误报成「内容过期」。
+  const LF = String.fromCharCode(10);
+  const CRLF = String.fromCharCode(13, 10);
+  const EOL = page.includes(CRLF) ? CRLF : LF;
   let out = page;
   for (const claim of data.claims) {
     const open = `<!-- phys:${claim.id} -->`;
@@ -145,8 +150,11 @@ function render(data, page) {
       generator: data.provenance.generator,
       sympy: data.provenance.sympy,
       contentHash: data.content_hash,
-    });
-    out = out.slice(0, start + open.length) + "\n      " + block + "\n      " + out.slice(end);
+    }).split(LF).join(EOL);
+    out =
+      out.slice(0, start + open.length) +
+      EOL + "      " + block + EOL + "      " +
+      out.slice(end);
   }
   return out;
 }
