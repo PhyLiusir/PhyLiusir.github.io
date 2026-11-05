@@ -11,10 +11,10 @@
   body{
     background:#fff;color:#1A1714;
     font-family:"Geist","Noto Sans SC",-apple-system,"Segoe UI",sans-serif;
-    font-size:9.2pt;line-height:1.46;
+    font-size:8.5pt;line-height:1.25;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  .sheet{width:210mm;min-height:297mm;padding:12mm 17mm 11mm;margin:0 auto;background:#fff}
+  .sheet{width:210mm;min-height:297mm;padding:11mm 17mm 8mm;margin:0 auto;background:#fff}
   @media screen{
     body{background:#EDEAE3;padding:24px 0}
     .sheet{box-shadow:0 2px 24px rgba(0,0,0,.14)}
@@ -24,21 +24,21 @@
 
   .name{
     font-family:"Newsreader",Georgia,serif;font-weight:300;
-    font-size:26pt;line-height:1.05;letter-spacing:-.015em;
+    font-size:20.5pt;line-height:1.02;letter-spacing:-.01em;
   }
   .name span{font-size:13pt;color:#8C8478;margin-left:6pt;letter-spacing:0}
-  .role{margin-top:5pt;font-size:9.4pt;color:#4A443B}
+  .role{margin-top:3pt;font-size:9.4pt;color:#4A443B}
   .contact{
-    margin-top:7pt;font-family:"Geist Mono",ui-monospace,monospace;
+    margin-top:5pt;font-family:"Geist Mono",ui-monospace,monospace;
     font-size:7.8pt;letter-spacing:.02em;color:#6B6459;
   }
   .contact b{font-weight:400;color:#A0472F}
-  .rule{margin-top:9pt;border-top:1px solid #C9C1B2}
+  .rule{margin-top:6.5pt;border-top:1px solid #C9C1B2}
 
-  section{margin-top:10.5pt}
+  section{margin-top:4.5pt}
   .sec-head{
     display:flex;align-items:baseline;gap:8pt;
-    border-bottom:1px solid #DDD6C8;padding-bottom:2.6pt;margin-bottom:6pt;
+    border-bottom:1px solid #DDD6C8;padding-bottom:2pt;margin-bottom:4pt;
   }
   .sec-head h2{
     font-family:"Geist Mono",ui-monospace,monospace;
@@ -52,32 +52,32 @@
 
   .item + .item{margin-top:6pt}
   .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:12pt}
-  .item-top h3{font-size:9.8pt;font-weight:500;line-height:1.35}
+  .item-top h3{font-size:9.4pt;font-weight:500;line-height:1.35}
   .item-top .date{
     font-family:"Geist Mono",monospace;font-size:7.6pt;color:#8C8478;
     white-space:nowrap;letter-spacing:.02em;
   }
-  .sub{font-size:8.9pt;color:#5A534A;margin-top:1pt}
+  .sub{font-size:8.6pt;color:#5A534A;margin-top:1pt}
   .body{font-size:8.9pt;color:#4A443B;margin-top:3pt}
   ul{margin:3pt 0 0;padding-left:11pt}
   li{font-size:8.9pt;color:#4A443B;margin-top:1.5pt}
   li::marker{color:#B9AF9E}
 
-  .pub{margin-top:5pt;padding-left:11pt;position:relative}
+  .pub{margin-top:1.7pt;padding-left:11pt;position:relative}
   .pub:first-of-type{margin-top:2pt}
   .pub::before{content:"";position:absolute;left:0;top:4.2pt;width:4pt;height:1px;background:#A0472F}
   .pub b{font-weight:500}
   .pub .venue{color:#6B6459}
 
-  .skills{display:grid;grid-template-columns:26mm 1fr;row-gap:2.5pt;column-gap:6pt}
+  .skills{display:grid;grid-template-columns:26mm 1fr;row-gap:0.6pt;column-gap:6pt}
   .skills dt{
     font-family:"Geist Mono",monospace;font-size:7.4pt;letter-spacing:.08em;
     color:#8C8478;padding-top:1.2pt;
   }
-  .skills dd{margin:0;font-size:8.9pt;color:#332E27}
+  .skills dd{margin:0;font-size:8.6pt;color:#332E27}
   dl{margin:0}
   .foot{
-    margin-top:14pt;border-top:1px solid #DDD6C8;padding-top:5pt;
+    margin-top:2pt;border-top:1px solid #DDD6C8;padding-top:2.5pt;
     font-family:"Geist Mono",monospace;font-size:7.2pt;color:#A8A093;letter-spacing:.04em;
     display:flex;justify-content:space-between;
   }
@@ -91,6 +91,8 @@
   <p class="contact">
     <b>202422201069@mail.sdu.edu.cn</b> &nbsp;·&nbsp; physicsliu299792458@outlook.com &nbsp;·&nbsp; github.com/PhyLiusir<br />
     Qingdao, China
+  <br />
+    Chinese (native) &middot; English (working proficiency)
   </p>
   <div class="rule"></div>
 
@@ -104,6 +106,11 @@
       <p class="sub">Institute of Frontier and Interdisciplinary Science · class of 2024, expected 2028</p>
       <p class="body">Physics for the foundations. Coursework: theoretical mechanics, electrodynamics, thermodynamics and statistical physics, quantum mechanics, advanced quantum mechanics, quantum field theory, particle physics, general relativity. Time outside it goes to engineering on both sides of large models and agents — read, reproduce, then change it on purpose.</p>
     </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>How I work</h2></div>
+    <p class="body">Derive from first principles, not from precedent — ugly is fine, fabricated is not. Every claim has to replay from a log.</p>
   </section>
 
   <section>
@@ -121,24 +128,35 @@
     <p class="pub"><b>Tool design (AG 02).</b> Schemas, error surfaces and return shapes for a batch of real tasks, comparing failure distributions before and after.</p>
     <p class="pub"><b>Multi-agent collaboration (AG 03).</b> A strong single-agent baseline first; multi-agent setups have to beat it reliably before roles get split.</p>
     <p class="pub"><b>RAG (AG 04).</b> A citation-required QA set and a scoring script: an answer must land on a specific passage or it counts as wrong.</p>
-    <p class="pub"><b>Light-front quantization (PH 01).</b> Fock-space truncation as the one approximation that has to be justified.</p>
-    <p class="pub"><b>Baryon light-cone Fock expansion (PH 02).</b> Three-quark sector first; which observables survive a cut at fixed N.</p>
-    <p class="pub"><b>Proton structure (PH 03).</b> DIS, SIDIS and DY read together — collinear PDF, transverse momentum, 3D distributions.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Current work</h2></div>
+    <p class="pub"><b>LM 03 &middot; Loop Attention — the bill for depth reuse.</b> memory, wall-clock and training stability measured against a stacked baseline.</p>
+    <p class="pub"><b>LM 01 &middot; Serving comparison log.</b> throughput, memory and tail latency for one model across serving and quantisation configs.</p>
+    <p class="pub"><b>AG 02 &middot; Tool interface.</b> schemas and error handling redone for a batch of real tasks, with the failure modes logged.</p>
+    <p class="pub"><b>AG 04 &middot; Citation-required RAG eval set.</b> an answer has to land on a specific passage, or it counts as wrong.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Open questions</h2></div>
+<p class="pub"><b>LM 01 &middot; Deployment.</b> At what load does the batching-versus-tail-latency trade-off flip sign? &middot; Is the throughput bought with quantisation worth the accuracy it costs? &middot; Should the KV-cache memory budget be accounted per request or per tenant?</p>
+    <p class="pub"><b>LM 02 &middot; Post-training.</b> Which data-selection metric actually predicts downstream gain? &middot; What observable signals reveal that an eval set has been contaminated? &middot; At what model size do RL-stage gains start to appear?</p>
+    <p class="pub"><b>LM 03 &middot; New attention architecture — Loop Attention.</b> Where is the trade-off point between depth reuse and width scaling? &middot; Which metric detects the representation collapse caused by reuse, early? &middot; On long-context tasks, could reuse turn from cost into advantage?</p>
+    <p class="pub"><b>AG 01 &middot; Building agents.</b> Which failure modes can extra tools fix, and which can they not? &middot; Who should decide when a memory gets written? &middot; At what task length does planning start to pay for itself?</p>
+    <p class="pub"><b>AG 02 &middot; Tool design.</b> How detailed must an error message be before the model actually changes behaviour? &middot; Is it better for tools to be coarse-grained or fine-grained? &middot; How structured should a return value be?</p>
+    <p class="pub"><b>AG 03 &middot; Multi-agent collaboration.</b> How does coordination overhead grow with the number of roles? &middot; What signal says roles should be merged rather than split further? &middot; How does failure propagate between roles?</p>
+    <p class="pub"><b>AG 04 &middot; RAG.</b> In what range is the chunk-size versus recall relationship most stable? &middot; Should a wrong citation cost more than no citation at all? &middot; At what corpus size does re-ranking start to pay off?</p>
   </section>
 
   <section>
     <div class="sec-head"><h2>Technical skills</h2></div>
     <dl class="skills">
-      <dt>LANGUAGES</dt><dd>Python (primary), C++, CUDA, Bash, Git</dd>
+      <dt>LANGUAGES</dt><dd>Python (primary), C++ and CUDA, Bash, Git and code review</dd>
       <dt>MODEL SIDE</dt><dd>PyTorch training and fine-tuning, transformers and custom layers, serving and quantisation, LoRA and preference alignment</dd>
       <dt>AGENT SIDE</dt><dd>Tools and function calling, multi-agent orchestration, vector retrieval and RAG, evaluation sets and scoring scripts</dd>
-      <dt>TOOLING</dt><dd>Linux and containers, distributed training basics, reproducible experiments</dd>
+      <dt>TOOLING</dt><dd>Linux and containers, distributed training basics, reproducible experiments, technical writing</dd>
     </dl>
-  </section>
-
-  <section>
-    <div class="sec-head"><h2>Languages</h2></div>
-    <p class="body">Chinese (native) · English (working proficiency).</p>
   </section>
 
   <div class="foot">

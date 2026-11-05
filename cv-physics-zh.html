@@ -11,10 +11,10 @@
   body{
     background:#fff;color:#1A1714;
     font-family:"Geist","Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
-    font-size:9.2pt;line-height:1.58;
+    font-size:8.5pt;line-height:1.34;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  .sheet{width:210mm;min-height:297mm;padding:12mm 17mm 11mm;margin:0 auto;background:#fff}
+  .sheet{width:210mm;min-height:297mm;padding:11mm 17mm 8mm;margin:0 auto;background:#fff}
   @media screen{
     body{background:#EDEAE3;padding:24px 0}
     .sheet{box-shadow:0 2px 24px rgba(0,0,0,.14)}
@@ -24,21 +24,21 @@
 
   .name{
     font-family:"Newsreader","Noto Serif SC","Songti SC","Microsoft YaHei",serif;font-weight:400;
-    font-size:25pt;line-height:1.1;letter-spacing:.02em;
+    font-size:20.5pt;line-height:1.05;letter-spacing:.02em;
   }
   .name span{font-size:11pt;color:#8C8478;margin-left:8pt;letter-spacing:0;font-family:"Geist",sans-serif}
-  .role{margin-top:5pt;font-size:9.4pt;color:#4A443B}
+  .role{margin-top:3pt;font-size:9.4pt;color:#4A443B}
   .contact{
-    margin-top:7pt;font-family:"Geist Mono",ui-monospace,monospace;
+    margin-top:5pt;font-family:"Geist Mono",ui-monospace,monospace;
     font-size:7.8pt;letter-spacing:.02em;color:#6B6459;
   }
   .contact b{font-weight:400;color:#A0472F}
-  .rule{margin-top:9pt;border-top:1px solid #C9C1B2}
+  .rule{margin-top:6.5pt;border-top:1px solid #C9C1B2}
 
-  section{margin-top:10.5pt}
+  section{margin-top:4.5pt}
   .sec-head{
     display:flex;align-items:baseline;gap:8pt;
-    border-bottom:1px solid #DDD6C8;padding-bottom:2.6pt;margin-bottom:6pt;
+    border-bottom:1px solid #DDD6C8;padding-bottom:2pt;margin-bottom:4pt;
   }
   .sec-head h2{
     font-family:"Geist","Noto Sans SC","Microsoft YaHei",sans-serif;
@@ -51,32 +51,32 @@
 
   .item + .item{margin-top:6pt}
   .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:12pt}
-  .item-top h3{font-size:9.8pt;font-weight:500;line-height:1.4}
+  .item-top h3{font-size:9.4pt;font-weight:500;line-height:1.4}
   .item-top .date{
     font-family:"Geist Mono",monospace;font-size:7.6pt;color:#8C8478;
     white-space:nowrap;letter-spacing:.02em;
   }
-  .sub{font-size:8.9pt;color:#5A534A;margin-top:1pt}
-  .body{font-size:8.9pt;color:#4A443B;margin-top:3pt;line-height:1.66}
+  .sub{font-size:8.6pt;color:#5A534A;margin-top:1pt}
+  .body{font-size:8.6pt;color:#4A443B;margin-top:2pt;line-height:1.66}
   ul{margin:3pt 0 0;padding-left:12pt}
   li{font-size:8.9pt;color:#4A443B;margin-top:2pt}
   li::marker{color:#B9AF9E}
 
-  .pub{margin-top:6pt;padding-left:11pt;position:relative}
+  .pub{margin-top:1.7pt;padding-left:11pt;position:relative}
   .pub:first-of-type{margin-top:2pt}
   .pub::before{content:"";position:absolute;left:0;top:5.2pt;width:4pt;height:1px;background:#A0472F}
   .pub b{font-weight:500}
   .pub .venue{color:#6B6459}
 
-  .skills{display:grid;grid-template-columns:24mm 1fr;row-gap:2.5pt;column-gap:6pt}
+  .skills{display:grid;grid-template-columns:24mm 1fr;row-gap:0.6pt;column-gap:6pt}
   .skills dt{
     font-family:"Geist Mono","Noto Sans SC",monospace;font-size:7.3pt;letter-spacing:.04em;
     color:#8C8478;padding-top:1.6pt;
   }
-  .skills dd{margin:0;font-size:8.9pt;color:#332E27;line-height:1.6}
+  .skills dd{margin:0;font-size:8.6pt;color:#332E27;line-height:1.6}
   dl{margin:0}
   .foot{
-    margin-top:14pt;border-top:1px solid #DDD6C8;padding-top:5pt;
+    margin-top:2pt;border-top:1px solid #DDD6C8;padding-top:2.5pt;
     font-family:"Geist Mono","Noto Sans SC",monospace;font-size:7.2pt;color:#A8A093;letter-spacing:.04em;
     display:flex;justify-content:space-between;
   }
@@ -106,6 +106,11 @@
   </section>
 
   <section>
+    <div class="sec-head"><h2>工作方式</h2></div>
+    <p class="body">从第一性原理推，不从惯例抄 —— 宁可丑，不可假；每个结论都要能对着日志重放一遍。</p>
+  </section>
+
+  <section>
     <div class="sec-head"><h2>研究兴趣</h2><em>RESEARCH INTERESTS</em></div>
     <p class="body">我关心的是：强子结构里有多少是可以推出来的，而不是拟合出来的。<br />
     <b>光前 QCD。</b>在光前做量子化，真空变平凡，但难度没有消失——它转移到了 Fock 截断，以及 A<sup>+</sup>=0 规范留下的零模上。下一步想弄懂的是从禁闭标度到束缚态方程的那条全息联系。<br />
@@ -121,20 +126,25 @@
   </section>
 
   <section>
+    <div class="sec-head"><h2>在做的</h2></div>
+    <p class="pub"><b>PH 02 &middot; 固定 N 截断下的重子光前波函数。</b> 先做三夸克扇区，再看五夸克分量把结构函数挪了多少。</p>
+    <p class="pub"><b>PH 03 &middot; 三过程约束对比。</b> 把 DIS、SIDIS、DY 塞进一套参数化，从冲突处入手。</p>
+  </section>
+
+  <section>
     <div class="sec-head"><h2>开放问题</h2><em>OPEN QUESTIONS</em></div>
-    <p class="pub">收敛是由压低 k<sub>⊥</sub> 主导，还是由增加 Fock 分量主导？</p>
-    <p class="pub">SIDIS 与 DY 对同一个 ⟨k<sub>⊥</sub>²⟩ 的约束差多少——那是符号反转，还是演化效应？</p>
-    <p class="pub">高斯宽度在哪个 Q² 区间开始站不住脚，也就是非高斯尾部从哪里开始接管？</p>
-    <p class="pub">一个只用 Drell–Yan 拟合出来的演化核，能不能不加新参数就预言 SIDIS 的 P<sub>hT</sub> 谱？</p>
+    <p class="pub"><b>PH 01 &middot; 光前量子化.</b> 光前运动学的乘法结构是真的省事，还是把工作量挪进了 Fock 空间？ &middot; 真空变简单，代价是把哪些物理挪进了波函数？ &middot; 该用哪个可观测量来监控截断误差——在没有精确解之前，怎么知道选对了？</p>
+    <p class="pub"><b>PH 02 &middot; 重子的光锥 Fock 基展开.</b> 收敛到底由压低 k⊥ 主导，还是由增加 Fock 分量主导？ &middot; 哪些可观测量对截断最不敏感——而它们是不是有意思的那几个？ &middot; 五夸克分量在哪个过程里才能浮到截断误差之上？</p>
+    <p class="pub"><b>PH 03 &middot; 质子结构：DIS / SIDIS / DY.</b> SIDIS 与 DY 对同一个 ⟨k⊥²⟩ 的约束差多少——那是符号反转，还是演化效应？ &middot; 高斯宽度模型在哪个 Q² 区间开始失效？ &middot; 三维分布里，哪一项最缺数据——这是数据的问题，还是因子化本身的问题？</p>
   </section>
 
   <section>
     <div class="sec-head"><h2>技术能力</h2><em>TECHNICAL SKILLS</em></div>
     <dl class="skills">
-      <dt>语言</dt><dd>Python、C++、Bash、Git</dd>
-      <dt>符号计算</dt><dd>Mathematica 代数推导；SymPy —— 我维护的开源 skill mathkit；数值积分与拟合</dd>
+      <dt>语言</dt><dd>Python（数值与拟合）、C++（计算代码）、Bash、Git</dd>
+      <dt>符号计算</dt><dd>Mathematica 代数推导；SymPy —— 我维护的开源 skill mathkit；SymPy for Agent（即将发布）；数值积分与拟合；ROOT 画图与处理；Convolution 与演化代码</dd>
       <dt>理论</dt><dd>光前量子化、Fock 基展开、TMD 因子化与演化、PDF 与 TMD 拟合、微扰计算</dd>
-      <dt>工具与环境</dt><dd>LaTeX 与 TikZ、可复现笔记、Linux 与 HPC</dd>
+      <dt>工具与环境</dt><dd>LaTeX 与 TikZ、可复现笔记、Linux 与 HPC、文献与数据管理</dd>
     </dl>
   </section>
 

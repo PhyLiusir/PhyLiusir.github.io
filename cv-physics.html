@@ -11,10 +11,10 @@
   body{
     background:#fff;color:#1A1714;
     font-family:"Geist","Noto Sans SC",-apple-system,"Segoe UI",sans-serif;
-    font-size:9.2pt;line-height:1.46;
+    font-size:8.5pt;line-height:1.25;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  .sheet{width:210mm;min-height:297mm;padding:12mm 17mm 11mm;margin:0 auto;background:#fff}
+  .sheet{width:210mm;min-height:297mm;padding:11mm 17mm 8mm;margin:0 auto;background:#fff}
   @media screen{
     body{background:#EDEAE3;padding:24px 0}
     .sheet{box-shadow:0 2px 24px rgba(0,0,0,.14)}
@@ -24,21 +24,21 @@
 
   .name{
     font-family:"Newsreader",Georgia,serif;font-weight:300;
-    font-size:26pt;line-height:1.05;letter-spacing:-.015em;
+    font-size:20.5pt;line-height:1.02;letter-spacing:-.01em;
   }
   .name span{font-size:13pt;color:#8C8478;margin-left:6pt;letter-spacing:0}
-  .role{margin-top:5pt;font-size:9.4pt;color:#4A443B}
+  .role{margin-top:3pt;font-size:9.4pt;color:#4A443B}
   .contact{
-    margin-top:7pt;font-family:"Geist Mono",ui-monospace,monospace;
+    margin-top:5pt;font-family:"Geist Mono",ui-monospace,monospace;
     font-size:7.8pt;letter-spacing:.02em;color:#6B6459;
   }
   .contact b{font-weight:400;color:#A0472F}
-  .rule{margin-top:9pt;border-top:1px solid #C9C1B2}
+  .rule{margin-top:6.5pt;border-top:1px solid #C9C1B2}
 
-  section{margin-top:10.5pt}
+  section{margin-top:4.5pt}
   .sec-head{
     display:flex;align-items:baseline;gap:8pt;
-    border-bottom:1px solid #DDD6C8;padding-bottom:2.6pt;margin-bottom:6pt;
+    border-bottom:1px solid #DDD6C8;padding-bottom:2pt;margin-bottom:4pt;
   }
   .sec-head h2{
     font-family:"Geist Mono",ui-monospace,monospace;
@@ -52,32 +52,32 @@
 
   .item + .item{margin-top:6pt}
   .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:12pt}
-  .item-top h3{font-size:9.8pt;font-weight:500;line-height:1.35}
+  .item-top h3{font-size:9.4pt;font-weight:500;line-height:1.35}
   .item-top .date{
     font-family:"Geist Mono",monospace;font-size:7.6pt;color:#8C8478;
     white-space:nowrap;letter-spacing:.02em;
   }
-  .sub{font-size:8.9pt;color:#5A534A;margin-top:1pt}
+  .sub{font-size:8.6pt;color:#5A534A;margin-top:1pt}
   .body{font-size:8.9pt;color:#4A443B;margin-top:3pt}
   ul{margin:3pt 0 0;padding-left:11pt}
   li{font-size:8.9pt;color:#4A443B;margin-top:1.5pt}
   li::marker{color:#B9AF9E}
 
-  .pub{margin-top:5pt;padding-left:11pt;position:relative}
+  .pub{margin-top:1.7pt;padding-left:11pt;position:relative}
   .pub:first-of-type{margin-top:2pt}
   .pub::before{content:"";position:absolute;left:0;top:4.2pt;width:4pt;height:1px;background:#A0472F}
   .pub b{font-weight:500}
   .pub .venue{color:#6B6459}
 
-  .skills{display:grid;grid-template-columns:26mm 1fr;row-gap:2.5pt;column-gap:6pt}
+  .skills{display:grid;grid-template-columns:26mm 1fr;row-gap:0.6pt;column-gap:6pt}
   .skills dt{
     font-family:"Geist Mono",monospace;font-size:7.4pt;letter-spacing:.08em;
     color:#8C8478;padding-top:1.2pt;
   }
-  .skills dd{margin:0;font-size:8.9pt;color:#332E27}
+  .skills dd{margin:0;font-size:8.6pt;color:#332E27}
   dl{margin:0}
   .foot{
-    margin-top:14pt;border-top:1px solid #DDD6C8;padding-top:5pt;
+    margin-top:2pt;border-top:1px solid #DDD6C8;padding-top:2.5pt;
     font-family:"Geist Mono",monospace;font-size:7.2pt;color:#A8A093;letter-spacing:.04em;
     display:flex;justify-content:space-between;
   }
@@ -107,6 +107,11 @@
   </section>
 
   <section>
+    <div class="sec-head"><h2>How I work</h2></div>
+    <p class="body">Derive from first principles, not from precedent — ugly is fine, fabricated is not. Every claim has to replay from a log.</p>
+  </section>
+
+  <section>
     <div class="sec-head"><h2>Research interests</h2></div>
     <p class="body">I am interested in how much of hadron structure can be derived rather than fitted.<br />
     <b>Light-front QCD.</b> Quantise on the light front and the vacuum turns trivial &mdash; the difficulty does not disappear, it reappears in the Fock truncation and in the zero modes the A<sup>+</sup>=0 gauge leaves behind. Next for me: the holographic link from confinement scale to bound-state equation.<br />
@@ -122,20 +127,25 @@
   </section>
 
   <section>
+    <div class="sec-head"><h2>Current work</h2></div>
+    <p class="pub"><b>PH 02 &middot; Baryon light-front wave function at fixed N.</b> three-quark sector first, then how far the five-quark component moves the structure function.</p>
+    <p class="pub"><b>PH 03 &middot; Cross-process constraints.</b> DIS, SIDIS and DY in one parameterisation, starting where they disagree.</p>
+  </section>
+
+  <section>
     <div class="sec-head"><h2>Open questions</h2></div>
-    <p class="pub">Does convergence come from restricting k<sub>⊥</sub> or from the number of Fock components?</p>
-    <p class="pub">Do SIDIS and DY disagree on the same ⟨k<sub>⊥</sub>²⟩ &mdash; and is a disagreement a sign reversal or an evolution effect?</p>
-    <p class="pub">In which Q² does a Gaussian width stop being defensible, i.e. where do non-Gaussian tails take over?</p>
-    <p class="pub">Can a kernel fitted to Drell&ndash;Yan alone predict the SIDIS P<sub>hT</sub> spectrum with no new parameters?</p>
+    <p class="pub"><b>PH 01 &middot; Light-front quantization.</b> Does the multiplicative kinematics actually save work, or does it just move the work into the Fock space? &middot; If the vacuum got simpler, which physics got moved into the wave function instead? &middot; Which observable is the right monitor for truncation error — and how would I know, before I have the exact answer?</p>
+    <p class="pub"><b>PH 02 &middot; Baryon light-cone Fock expansion.</b> Is convergence driven by cutting k⊥ or by adding Fock components? &middot; Which observables are least sensitive to the cut — and are they the interesting ones? &middot; In which process do five-quark components rise above the truncation error?</p>
+    <p class="pub"><b>PH 03 &middot; Proton structure — DIS / SIDIS / DY.</b> Do SIDIS and DY disagree on the same ⟨k⊥²⟩ — and is a disagreement a sign reversal or an evolution effect? &middot; In which Q² range does the Gaussian width model start to fail? &middot; Which term of the 3D distribution is shortest on data — and is that a fact about the data, or about the factorisation?</p>
   </section>
 
   <section>
     <div class="sec-head"><h2>Technical skills</h2></div>
     <dl class="skills">
-      <dt>LANGUAGES</dt><dd>Python, C++, Bash, Git</dd>
-      <dt>SYMBOLIC</dt><dd>Mathematica for algebra; SymPy &mdash; mathkit, an open-source skill I maintain; numerical integration and fitting</dd>
+      <dt>LANGUAGES</dt><dd>Python for numerics and fits, C++ for compute, Bash, Git</dd>
+      <dt>SYMBOLIC</dt><dd>Mathematica for algebra; SymPy &mdash; mathkit, an open-source skill I maintain; SymPy for Agent (upcoming); numerical integration and fitting; ROOT for plots and data; convolution and evolution codes</dd>
       <dt>THEORY</dt><dd>Light-front quantisation, Fock-basis expansion, TMD factorisation and evolution, PDF and TMD fits, perturbative calculations</dd>
-      <dt>TOOLING</dt><dd>LaTeX and TikZ, reproducible notes, Linux and HPC</dd>
+      <dt>TOOLING</dt><dd>LaTeX and TikZ, reproducible notes, Linux and HPC, papers and data management</dd>
     </dl>
   </section>
 
