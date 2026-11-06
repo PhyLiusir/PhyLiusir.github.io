@@ -363,16 +363,19 @@ try{var _t=localStorage.getItem('site-theme')||(window.matchMedia&&window.matchM
           <div>
             <h3 data-zh="山东大学（青岛）">Shandong University, Qingdao</h3>
             <p class="role" data-zh="物理学学士 —— 前沿交叉科学青岛研究院">B.Sc. in Physics — Institute of Frontier and Interdisciplinary Science</p>
-            <p class="detail" data-zh="物理打底；课外的时间几乎全部交给大模型与智能体两侧的工程实践——读论文、复现、然后有意地改它。">Physics for the foundations; almost all time outside it goes to engineering on both sides of large models and agents — read, reproduce, then change it on purpose.</p>
+            <p class="detail" data-track="ai" data-zh="物理用来打底——统计物理、量子场论、数值方法，是手上的工具。真正的工作时间花在大模型与智能体上：读论文、在小规模上复现，然后只改一个东西，看它在哪儿坏掉。">Physics training as the toolbox — statistical mechanics, quantum field theory, numerical methods. The working hours go to large models and agents instead: read the paper, reproduce it at small scale, then change one thing and watch what breaks.</p>
+            <p class="detail" data-track="physics" data-zh="课程：理论力学、电动力学、热力学与统计物理、量子力学、高等量子力学、量子场论、粒子物理、广义相对论。后半段才是现在的工作所在。">Coursework: theoretical mechanics, electrodynamics, thermodynamics and statistical physics, quantum mechanics, advanced quantum mechanics, quantum field theory, particle physics, general relativity. The second half of that list is where the current work sits.</p>
           </div>
         </article>
 
         <article class="exp reveal">
           <div class="year" data-zh="2024 — 至今">2024 — now</div>
           <div>
-            <h3 data-zh="独立研究与实践">Self-directed research and practice</h3>
-            <p class="role" data-zh="复现优先于改进">Reproduce before improving</p>
-            <p class="detail" data-zh="每个方向都从最小可复现版本开始：先把论文里的方法在小规模上重跑一遍，记录哪里对不上，再决定要不要往下走。">Every area starts from a minimal runnable version: re-run a published method at small scale, write down where it fails to reproduce, and only then decide whether to go further.</p>
+            <h3 data-zh="独立工作与实践">Self-directed work and practice</h3>
+            <p class="role" data-track="ai" data-zh="大模型与智能体">Large models and agents</p>
+            <p class="role" data-track="physics" data-zh="光前量子化与 TMD">Light-front and TMD</p>
+            <p class="detail" data-track="ai" data-zh="把服务与后训练管线在小规模上复现；给真实任务批重做智能体的工具接口；每个结果都连同产生它的脚本一起留成日志。">Serving and post-training pipelines reproduced at small scale; agent tooling rewritten against real task batches; every result kept as a log with the script that produced it.</p>
+            <p class="detail" data-track="physics" data-zh="逐篇读光前量子化与 TMD 的文献，先把关键关系符号推导一遍再拿来用；检验留在仓库里，每条结论都能重跑。">Working through the light-front quantisation and TMD literature paper by paper, re-deriving the key relations symbolically before trusting them, and keeping the checks in a repository so each claim can be re-run.</p>
           </div>
         </article>
 
